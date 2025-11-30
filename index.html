@@ -369,44 +369,63 @@
       .od .seccion{background:#ffffff;}
     }
 
-    /* ===== FOOTER NEGRO UMANOAI ===== */
-    .footer-umanoai{
-      background:#000;
-      padding:28px 20px calc(28px + env(safe-area-inset-bottom));
-      margin-top:40px;
-    }
-    .footer-umanoai .footer-inner{
-      max-width:1200px;
-      margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:14px;
-      text-align:center;
-    }
-    .footer-umanoai .copy{
-      color:#ccc;
-      font-size:14px;
-      margin:0;
-    }
-    .umanoai-brand{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      opacity:.9;
-      transition:opacity .2s ease, transform .2s ease;
-    }
-    .umanoai-brand:hover{
-      opacity:1;
-      transform:scale(1.05);
-    }
-    .umanoai-logo{
-      height:34px;
-      width:auto;
-      display:block;
-    }
+   /* ===== FOOTER NEGRO UMANOAI ===== */
+.footer-umanoai{
+  background:#000;
+  padding:28px 20px calc(28px + env(safe-area-inset-bottom));
+  margin-top:40px;
+}
+
+.footer-umanoai .footer-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  text-align:center;
+}
+
+.footer-umanoai .copy{
+  color:#fff;      /* AHORA EN BLANCO */
+  font-size:14px;
+  margin:0;
+}
+
+.footer-umanoai .designed{
+  margin:0;
+  margin-top:4px;
+  color:#fff;      /* TAMBIÉN EN BLANCO */
+  font-size:13px;
+  opacity:.9;
+}
+
+.footer-umanoai strong{
+  color:#38bdf8; /* celeste branding */
+}
+
+.umanoai-brand{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  opacity:.9;
+  transition:opacity .2s ease, transform .2s ease;
+}
+
+.umanoai-brand:hover{
+  opacity:1;
+  transform:scale(1.05);
+}
+
+.umanoai-logo{
+  height:34px;
+  width:auto;
+  display:block;
+}
+
+
   </style>
 </head>
 
