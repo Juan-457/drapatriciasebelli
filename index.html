@@ -110,7 +110,7 @@
       position:fixed;
       bottom:24px;
       left:18px;
-      height:110px;  // tamaño del logo
+      height:110px;  /* tamaño del logo */
       opacity:.65;
       z-index:900;
       transition:transform .2s ease, opacity .2s ease;
@@ -224,15 +224,17 @@
       display:none;
       cursor:pointer;
       border:0;
-      background:rgba(15,23,42,.4);
+      background:rgba(15,23,42,.85); /* más oscuro para contraste */
       color:#fff;
       padding:8px;
       border-radius:999px;
       margin-left:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,.4);
     }
     .od nav .hamburger svg{
-      width:24px;
-      height:24px;
+      width:26px;
+      height:26px;
+      display:block;
     }
 
     /* ===== MENÚ MOBILE ===== */
@@ -375,8 +377,8 @@
         </ul>
 
         <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-          <svg viewBox="0 24 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 6h18M3 12h18M3 18h18"/>
           </svg>
         </button>
       </div>
@@ -513,7 +515,7 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Clínica Dental" />
   </a>
 
-  <!-- JS MENU MOBILE -->
+  <!-- JS MENU MOBILE + AÑO FOOTER -->
   <script>
     (function(){
       const btn = document.querySelector('.od .hamburger');
@@ -529,20 +531,26 @@
         }
       });
     })();
-    <footer>
-  © <span id="year"></span> Mauregui Automotores · Todos los derechos reservados.
 
-  <div class="footer-designed" style="margin-top:8px;">
-    <p style="display:flex; justify-content:center; align-items:center; gap:6px; margin:0;">
-      Diseñado por UmanoAI
-      <a href="https://umanoai.com.ar" target="_blank" style="display:inline-block;">
-        <img src="umanoai-logo.svg" alt="UmanoAI" style="height:18px;">
-      </a>
-    </p>
-  </div>
-</footer>
-    
+    document.addEventListener('DOMContentLoaded', () => {
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
   </script>
+
+  <footer>
+    © <span id="year"></span> Consultoria Dra Patricia Sebelli · Todos los derechos reservados.
+    <div class="footer-designed" style="margin-top:8px;">
+      <p style="display:flex; justify-content:center; align-items:center; gap:6px; margin:0;">
+        Diseñado por UmanoAI
+        <a href="https://umanoai.com.ar" target="_blank" style="display:inline-block;">
+          <img src="umanoai-logo.svg" alt="UmanoAI" style="height:18px;">
+        </a>
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
