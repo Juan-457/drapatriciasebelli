@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- ✅ viewport con viewport-fit para iPhone / webview -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Dra. Patricia Sebelli · Odontología Integral en Almagro</title>
   <meta name="color-scheme" content="light dark" />
   <meta name="description" content="Consultorio odontológico de la Dra. Patricia Sebelli en Almagro. Odontología integral para toda la familia, con especial foco en niños. Turnos fáciles por WhatsApp.">
@@ -33,7 +34,12 @@
     /* ===== HEADER / HERO ===== */
     .od header{
       position:relative;
+
+      /* fallback general */
       min-height:100vh;
+      /* alto visible real en navegadores modernos (iOS 16+, Chrome, etc.) */
+      min-height:100svh;
+
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -42,7 +48,10 @@
       overflow:hidden;
       isolation:isolate;
       padding:0 16px;
-      padding-top:80px; /* espacio para nav fijo */
+
+      /* espacio para nav + notch si lo hay */
+      padding-top:calc(80px + env(safe-area-inset-top, 0px));
+      padding-bottom:calc(24px + env(safe-area-inset-bottom, 0px));
     }
 
     .od header video{
@@ -70,7 +79,8 @@
     .od header h1{
       color:#fff;
       margin:24px 12px 8px;
-      font-size:clamp(30px,5.2vw,54px);
+      /* un poco más chico el tamaño máximo para que no se rompa en móviles con texto grande */
+      font-size:clamp(28px,5vw,42px);
       font-weight:800;
       text-shadow:0 2px 14px rgba(0,0,0,.45);
     }
@@ -223,8 +233,8 @@
     .od nav .hamburger{
       display:none;
       cursor:pointer;
-      border:0;
-      background:rgba(15,23,42,.85); /* más oscuro para contraste */
+      border:2px solid rgba(255,255,255,.7); /* más visible */
+      background:rgba(15,23,42,.85);
       color:#fff;
       padding:8px;
       border-radius:999px;
@@ -541,7 +551,7 @@
   </script>
 
   <footer>
-    © <span id="year"></span> Consultoria Dra Patricia Sebelli · Todos los derechos reservados.
+    © <span id="year"></span> Mauregui Automotores · Todos los derechos reservados.
     <div class="footer-designed" style="margin-top:8px;">
       <p style="display:flex; justify-content:center; align-items:center; gap:6px; margin:0;">
         Diseñado por UmanoAI
@@ -554,3 +564,4 @@
 
 </body>
 </html>
+
