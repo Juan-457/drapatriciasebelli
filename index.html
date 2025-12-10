@@ -21,11 +21,10 @@
     *{box-sizing:border-box}
     html{
       scroll-behavior:smooth;
-      -webkit-text-size-adjust:100%; /* evita que Safari agrande el texto */
+      -webkit-text-size-adjust:100%;
     }
     body{margin:0;}
 
-    /* ===== LAYOUT GENERAL ===== */
     .od{
       margin:0;
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
@@ -37,12 +36,7 @@
     /* ===== HEADER / HERO ===== */
     .od header{
       position:relative;
-
-      /* fallback general */
-      min-height:100vh;
-      /* alto visible real en navegadores modernos (iOS 16+, Chrome, etc.) */
       min-height:100svh;
-
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -51,8 +45,6 @@
       overflow:hidden;
       isolation:isolate;
       padding:0 16px;
-
-      /* espacio para nav + notch si lo hay */
       padding-top:calc(80px + env(safe-area-inset-top, 0px));
       padding-bottom:calc(24px + env(safe-area-inset-bottom, 0px));
     }
@@ -82,7 +74,6 @@
     .od header h1{
       color:#fff;
       margin:24px 12px 8px;
-      /* un poco más chico el tamaño máximo para que no se rompa en móviles con texto grande */
       font-size:clamp(28px,5vw,42px);
       font-weight:800;
       text-shadow:0 2px 14px rgba(0,0,0,.45);
@@ -95,6 +86,7 @@
       font-weight:500;
       text-shadow:0 2px 10px rgba(0,0,0,.5);
     }
+
     .od header .hero-cta{
       display:flex;
       flex-wrap:wrap;
@@ -123,54 +115,18 @@
       position:fixed;
       bottom:24px;
       left:18px;
-      height:110px;  /* tamaño del logo */
+      height:110px;
       opacity:.65;
       z-index:900;
       transition:transform .2s ease, opacity .2s ease;
     }
+
     .od .logo-sticky:hover{
       opacity:.98;
       transform:scale(1.03);
     }
 
-    /* ===== BOTONES ===== */
-    .od .btn-primaria,
-    .od .btn-secundaria{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 20px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:15px;
-      text-decoration:none;
-      cursor:pointer;
-      border:2px solid transparent;
-      transition:background .15s ease, color .15s ease, transform .1s ease, box-shadow .15s ease;
-    }
-    .od .btn-primaria{
-      background:#25D366;
-      color:#fff;
-      box-shadow:0 6px 18px rgba(0,0,0,.35);
-    }
-    .od .btn-primaria:hover{
-      transform:translateY(-1px);
-      box-shadow:0 9px 24px rgba(0,0,0,.4);
-    }
-
-    .od .btn-secundaria{
-      background:var(--menta);
-      color:#053b36;
-      border-color:#a7f3d0;
-      box-shadow:0 6px 18px rgba(21,128,106,.35);
-    }
-    .od .btn-secundaria:hover{
-      background:#3bb9aa;
-      box-shadow:0 9px 24px rgba(21,128,106,.55);
-      transform:translateY(-1px);
-    }
-
-    /* ===== NAV FIJO ===== */
+    /* ===== NAV ===== */
     .od nav{
       position:fixed;
       top:0;
@@ -183,6 +139,7 @@
       backdrop-filter:blur(10px);
       animation:navGlow 18s ease-in-out infinite alternate;
     }
+
     @keyframes navGlow{
       from{background-position:0% 0}
       to{background-position:100% 0}
@@ -219,6 +176,7 @@
       text-transform:uppercase;
       font-size:12px;
     }
+
     .od nav .links a{
       color:#f9fafb;
       padding:8px 6px;
@@ -227,6 +185,7 @@
       opacity:.85;
       transition:opacity .15s ease, background .15s ease, transform .1s ease;
     }
+
     .od nav .links a:hover{
       opacity:1;
       background:rgba(255,255,255,.10);
@@ -236,7 +195,7 @@
     .od nav .hamburger{
       display:none;
       cursor:pointer;
-      border:2px solid rgba(255,255,255,.7); /* más visible */
+      border:2px solid rgba(255,255,255,.7);
       background:rgba(15,23,42,.85);
       color:#fff;
       padding:8px;
@@ -244,13 +203,13 @@
       margin-left:8px;
       box-shadow:0 2px 8px rgba(0,0,0,.4);
     }
+
     .od nav .hamburger svg{
       width:26px;
       height:26px;
       display:block;
     }
 
-    /* ===== MENÚ MOBILE ===== */
     .od .links.mobile{
       display:flex;
       flex-direction:column;
@@ -265,8 +224,9 @@
       padding:10px 16px 14px;
       z-index:1202;
     }
+
     .od .links.mobile[hidden]{display:none!important}
-    .od .links.mobile a{
+        .od .links.mobile a{
       padding:10px 0;
       border-radius:10px;
       color:#f9fafb;
@@ -348,7 +308,7 @@
       background:var(--bgCard);
       box-shadow:0 10px 28px rgba(0,0,0,.35);
       border-radius:18px;
-      padding:14px 14px 16px;
+      padding:14px 14px 18px;
       border:1px solid rgba(15,118,110,.12);
       opacity:0;
       pointer-events:none;
@@ -362,12 +322,37 @@
       transform:translateY(0) scale(1);
     }
 
+    /* Botón para cerrar/minimizar */
+    .close-form{
+      position:absolute;
+      top:6px;
+      right:6px;
+      background:#0f766e;
+      color:white;
+      border:none;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      font-size:16px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 2px 6px rgba(0,0,0,.2);
+      transition:transform .15s ease, background .15s ease;
+    }
+    .close-form:hover{
+      background:#0b5b56;
+      transform:scale(1.07);
+    }
+
     .contact-float h3{
-      margin:0 0 4px;
+      margin:6px 0 4px;
       font-size:15px;
       color:#0f766e;
       font-weight:700;
       text-align:left;
+      padding-right:30px;
     }
 
     .contact-float p{
@@ -380,6 +365,7 @@
       display:flex;
       flex-direction:column;
       gap:8px;
+      margin-top:6px;
     }
 
     .contact-float label{
@@ -391,8 +377,7 @@
     }
 
     .contact-float input,
-    .contact-float select,
-    .contact-float textarea{
+    .contact-float select{
       font-family:inherit;
       font-size:13px;
       padding:6px 8px;
@@ -402,16 +387,9 @@
     }
 
     .contact-float input:focus,
-    .contact-float select:focus,
-    .contact-float textarea:focus{
+    .contact-float select:focus{
       border-color:#0f766e;
       box-shadow:0 0 0 1px rgba(15,118,110,.25);
-    }
-
-    .contact-float textarea{
-      min-height:52px;
-      resize:vertical;
-      max-height:110px;
     }
 
     .contact-float button[type="submit"]{
@@ -487,16 +465,9 @@
       background:#0b5b56;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (min-width:900px){
-      .od nav .brand{display:none;}
-      .od nav .nav-inner{justify-content:center;}
-    }
-
     @media (max-width:700px){
       .od nav .hamburger{display:block}
       .od nav .links:not(.mobile){display:none}
-      .od .seccion{background:#ffffff;}
 
       .contact-float{
         right:10px;
@@ -512,7 +483,7 @@
       }
     }
 
-    /* ===== FOOTER NEGRO UMANOAI ===== */
+    /* ===== FOOTER ===== */
     .footer-umanoai{
       background:#000;
       padding:28px 20px calc(28px + env(safe-area-inset-bottom));
@@ -545,7 +516,7 @@
     }
 
     .footer-umanoai strong{
-      color:#38bdf8; /* celeste branding */
+      color:#38bdf8;
     }
 
     .umanoai-brand{
@@ -569,7 +540,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="od">
 
@@ -603,7 +573,7 @@
       </div>
     </nav>
 
-    <!-- HERO CON hero.mp4 -->
+    <!-- HERO -->
     <header>
       <video autoplay muted loop playsinline poster="hero.jpg">
         <source src="hero.mp4" type="video/mp4">
@@ -627,7 +597,7 @@
       </div>
     </header>
 
-    <!-- SECCIÓN: SOBRE LA CLÍNICA -->
+    <!-- SECCIÓN SOBRE LA CLÍNICA -->
     <section id="sobre">
       <div class="seccion">
         <h2>🦷 Odontología integral con trato humano</h2>
@@ -645,7 +615,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN: TRATAMIENTOS -->
+    <!-- SECCIÓN TRATAMIENTOS -->
     <section id="tratamientos">
       <div class="seccion">
         <h2>📋 Tratamientos principales</h2>
@@ -671,7 +641,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN: NIÑOS -->
+    <!-- SECCIÓN NIÑOS -->
     <section id="ninos">
       <div class="seccion">
         <h2>👧👦 Pensado para los más chicos</h2>
@@ -699,7 +669,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN: TURNOS -->
+    <!-- SECCIÓN TURNOS -->
     <section id="turnos">
       <div class="seccion">
         <h2>📅 Turnos y contacto</h2>
@@ -709,7 +679,7 @@
 
         <p style="text-align:center;margin-top:8px;">
           WhatsApp: <strong>+54 9 11 0000 0000</strong><br>
-          Consultorio en <strong>Almagro, CABA</strong>
+          Consultorio en <strong>Almagro, CABA</strong><br>
           Bulnes 680 Piso 14 B
         </p>
 
@@ -721,32 +691,23 @@
       </div>
     </section>
 
-  </div>
+  </div> <!-- cierre .od -->
 
-  <!-- BOTÓN FLOTANTE PARA DESPLEGAR EL FORMULARIO -->
+
+  <!-- BOTÓN FLOTANTE PARA ABRIR FORMULARIO -->
   <button class="contact-toggle" id="contactToggle" aria-label="Abrir formulario de consulta" aria-expanded="false">
     📝
   </button>
 
-  <!-- FORMULARIO FLOTANTE PARA POWER AUTOMATE -->
+  <!-- FORMULARIO FLOTANTE ACTUALIZADO -->
   <div class="contact-float" id="contactBox">
+
+    <button class="close-form" id="closeFormBtn" aria-label="Cerrar formulario">✖</button>
+
     <h3>Consultas de la clínica</h3>
-    <p>Dejanos tus datos y durante los días de consultoría nos comunicaremos.</p>
+    <p>Completá tus datos y nos comunicaremos durante los días de consultoría.</p>
+
     <form id="contactForm">
-      <label for="nombre">
-        Nombre y apellido*
-        <input type="text" id="nombre" name="nombre" required autocomplete="name" />
-      </label>
-
-      <label for="telefono">
-        Teléfono / WhatsApp*
-        <input type="tel" id="telefono" name="telefono" required autocomplete="tel" />
-      </label>
-
-      <label for="email">
-        Email (opcional)
-        <input type="email" id="email" name="email" autocomplete="email" />
-      </label>
 
       <label for="motivo">
         Motivo de la consulta*
@@ -754,51 +715,65 @@
           <option value="">Seleccioná una opción</option>
           <option value="control-limpieza">Control y limpieza</option>
           <option value="ninos">Consulta para niños</option>
-          <option value="dolor-urgencia">Dolor / urgencia</option>
+          <option value="dolor">Dolor / urgencia</option>
           <option value="estetica">Estética dental</option>
           <option value="otro">Otro</option>
         </select>
       </label>
 
-      <label for="horario">
-        Preferencia de horario
-        <select id="horario" name="horario">
-          <option value="">Sin preferencia</option>
-          <option value="manana">Mañana</option>
-          <option value="tarde">Tarde</option>
-          <option value="sabado">Sábado</option>
-        </select>
+      <label for="nombre">
+        Nombre completo*
+        <input type="text" id="nombre" name="nombre" required />
       </label>
 
-      <label for="mensaje">
-        Comentario
-        <textarea id="mensaje" name="mensaje" placeholder="Contanos brevemente tu consulta"></textarea>
+      <label for="dni">
+        DNI*
+        <input type="text" id="dni" name="dni" required />
       </label>
 
-      <button type="submit" id="submitBtn">Enviar formulario</button>
+      <label for="telefono">
+        Teléfono / WhatsApp*
+        <input type="tel" id="telefono" name="telefono" required />
+      </label>
+
+      <label for="email">
+        Correo electrónico*
+        <input type="email" id="email" name="email" required />
+      </label>
+
+      <label for="edad">
+        Edad*
+        <input type="number" id="edad" name="edad" required min="0" max="110" />
+      </label>
+
+      <button type="submit" id="submitBtn">Enviar</button>
 
       <div class="form-status" id="formStatus" aria-live="polite"></div>
-    </form>
-  </div>
 
+    </form>
+
+  </div>
   <!-- JS MENU MOBILE + FORMULARIO -->
   <script>
     (function(){
       const btn = document.querySelector('.od .hamburger');
       const mobileMenu = document.getElementById('mobileMenu');
-      btn?.addEventListener('click', () => {
-        const isOpen = !mobileMenu.hasAttribute('hidden');
-        if (isOpen) {
-          mobileMenu.setAttribute('hidden','');
-          btn.setAttribute('aria-expanded','false');
-        } else {
-          mobileMenu.removeAttribute('hidden');
-          btn.setAttribute('aria-expanded','true');
-        }
-      });
+      if(btn && mobileMenu){
+        btn.addEventListener('click', () => {
+          const isOpen = !mobileMenu.hasAttribute('hidden');
+          if (isOpen) {
+            mobileMenu.setAttribute('hidden','');
+            btn.setAttribute('aria-expanded','false');
+          } else {
+            mobileMenu.removeAttribute('hidden');
+            btn.setAttribute('aria-expanded','true');
+          }
+        });
+      }
     })();
 
     document.addEventListener('DOMContentLoaded', () => {
+      // Año del footer
       const yearSpan = document.getElementById('year');
       if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
@@ -809,11 +784,21 @@
       const submitBtn = document.getElementById('submitBtn');
       const contactBox = document.getElementById('contactBox');
       const toggleBtn = document.getElementById('contactToggle');
+      const closeBtn = document.getElementById('closeFormBtn');
 
+      // Abrir formulario
       if (toggleBtn && contactBox){
         toggleBtn.addEventListener('click', () => {
           const isOpen = contactBox.classList.toggle('contact-float--open');
           toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      }
+
+      // Cerrar/minimizar formulario
+      if (closeBtn && contactBox && toggleBtn){
+        closeBtn.addEventListener('click', () => {
+          contactBox.classList.remove('contact-float--open');
+          toggleBtn.setAttribute('aria-expanded','false');
         });
       }
 
@@ -826,15 +811,15 @@
             return;
           }
 
-          const PA_ENDPOINT = "https://default5243832e5a814f3d9656d9f5b8364a.23.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/12688bd405594ecb8bccc3adb328f237/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=kEgrv34Vm2M-c4d1hRB5lf-9ZStrWXDhNXdC4lLnQCo"; 
+          const PA_ENDPOINT = "https://default5243832e5a814f3d9656d9f5b8364a.23.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/12688bd405594ecb8bccc3adb328f237/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=kEgrv34Vm2M-c4d1hRB5lf-9ZStrWXDhNXdC4lLnQCo";
 
           const payload = {
+            motivo: document.getElementById('motivo').value,
             nombre: document.getElementById('nombre').value.trim(),
+            dni: document.getElementById('dni').value.trim(),
             telefono: document.getElementById('telefono').value.trim(),
             email: document.getElementById('email').value.trim(),
-            motivo: document.getElementById('motivo').value,
-            horario: document.getElementById('horario').value,
-            mensaje: document.getElementById('mensaje').value.trim(),
+            edad: document.getElementById('edad').value.trim(),
             origen: "Web Dra. Patricia Sebelli"
           };
 
@@ -858,14 +843,14 @@
 
             form.reset();
             submitBtn.disabled = false;
-            submitBtn.textContent = "Enviar formulario";
+            submitBtn.textContent = "Enviar";
 
             statusEl.textContent = "Formulario Enviado, Durante los dias de consultoria nos comunicaremos, Muchas gracias";
             statusEl.classList.add("form-status--ok");
           } catch (err) {
             console.error(err);
             submitBtn.disabled = false;
-            submitBtn.textContent = "Enviar formulario";
+            submitBtn.textContent = "Enviar";
             statusEl.textContent = "Ocurrió un error. Si el problema continúa, podés escribirnos por WhatsApp.";
             statusEl.classList.add("form-status--error");
           }
@@ -894,4 +879,7 @@
   </footer>
 </body>
 </html>
+
+
+
 
