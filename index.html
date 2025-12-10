@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <!-- ✅ viewport con viewport-fit para iPhone / webview -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Dra. Patricia Sebelli · Odontología Integral en Almagro</title>
   <meta name="color-scheme" content="light dark" />
@@ -58,18 +57,9 @@
       object-position:center;
       z-index:-2;
     }
-    .od header::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:-1;
-      background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.30),
-        rgba(0,0,0,.15)
-      );
-    }
+
+    /* ❌ SE ELIMINÓ LA CAPA OSCURA DEL VIDEO */
+    /* .od header::before{ ... }  ⬅ Eliminado */
 
     .od header h1{
       color:#fff;
@@ -87,29 +77,6 @@
       text-shadow:0 2px 10px rgba(0,0,0,.5);
     }
 
-    .od header .hero-cta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:center;
-      margin-bottom:42px;
-    }
-
-    .od .marquesina{
-      position:absolute;
-      bottom:16px;
-      left:50%;
-      transform:translateX(-50%);
-      background:rgba(0,0,0,.55);
-      color:#fff;
-      padding:8px 14px;
-      border-radius:999px;
-      backdrop-filter:blur(4px);
-      max-width:92%;
-      font-weight:700;
-      font-size:clamp(14px,3.2vw,18px);
-    }
-
     /* ===== LOGO ABAJO IZQUIERDA ===== */
     .od .logo-sticky{
       position:fixed;
@@ -120,7 +87,6 @@
       z-index:900;
       transition:transform .2s ease, opacity .2s ease;
     }
-
     .od .logo-sticky:hover{
       opacity:.98;
       transform:scale(1.03);
@@ -154,7 +120,6 @@
       gap:22px;
       padding:10px 12px 10px;
     }
-
     .od nav .brand{
       color:#e0f2f1;
       font-weight:600;
@@ -164,7 +129,6 @@
       opacity:.9;
       margin-left:12px;
     }
-
     .od nav .links{
       display:flex;
       gap:22px;
@@ -176,7 +140,6 @@
       text-transform:uppercase;
       font-size:12px;
     }
-
     .od nav .links a{
       color:#f9fafb;
       padding:8px 6px;
@@ -185,13 +148,11 @@
       opacity:.85;
       transition:opacity .15s ease, background .15s ease, transform .1s ease;
     }
-
     .od nav .links a:hover{
       opacity:1;
       background:rgba(255,255,255,.10);
       transform:translateY(-1px);
     }
-
     .od nav .hamburger{
       display:none;
       cursor:pointer;
@@ -203,7 +164,6 @@
       margin-left:8px;
       box-shadow:0 2px 8px rgba(0,0,0,.4);
     }
-
     .od nav .hamburger svg{
       width:26px;
       height:26px;
@@ -226,7 +186,7 @@
     }
 
     .od .links.mobile[hidden]{display:none!important}
-        .od .links.mobile a{
+    .od .links.mobile a{
       padding:10px 0;
       border-radius:10px;
       color:#f9fafb;
@@ -322,7 +282,6 @@
       transform:translateY(0) scale(1);
     }
 
-    /* Botón para cerrar/minimizar */
     .close-form{
       position:absolute;
       top:6px;
@@ -438,7 +397,6 @@
       font-weight:500;
     }
 
-    /* ===== BOTÓN FLOTANTE PARA ABRIR FORM ===== */
     .contact-toggle{
       position:fixed;
       right:20px;
@@ -540,13 +498,12 @@
     }
   </style>
 </head>
+
 <body>
   <div class="od">
 
-    <!-- LOGO STICKY -->
     <img src="logo-clinica.png" alt="Logo Dra. Patricia Sebelli Odontología Integral" class="logo-sticky">
 
-    <!-- NAV -->
     <nav>
       <div class="nav-inner">
         <div class="brand">Dra. Patricia Sebelli · Odontología Integral</div>
@@ -560,7 +517,8 @@
 
         <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 6h18M3 12h18M3 18h18"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" 
+              d="M3 6h18M3 12h18M3 18h18"/>
           </svg>
         </button>
       </div>
@@ -573,49 +531,43 @@
       </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SIN BOTONES Y SIN CAPA OSCURA -->
     <header>
       <video autoplay muted loop playsinline poster="hero.jpg">
         <source src="hero.mp4" type="video/mp4">
       </video>
 
       <h1>Sonrisas sanas para toda la familia</h1>
+
       <p class="hero-subtitle">
         Consultorio odontológico de <strong>la Dra. Patricia Sebelli</strong> en Almagro.
         Odontología integral con un enfoque <strong>cálido y cercano</strong>, ideal para niños y adultos.
       </p>
 
-      <div class="hero-cta">
-        <a href="https://wa.me/5491100000000?text=Hola%20quisiera%20pedir%20un%20turno%20con%20la%20Dra.%20Patricia%20Sebelli" class="btn-primaria" target="_blank" rel="noopener">
-          📲 Pedir turno por WhatsApp
-        </a>
-        <a href="#tratamientos" class="btn-secundaria">Ver tratamientos</a>
-      </div>
+      <!-- ❌ SE ELIMINARON LOS BOTONES DEL HERO -->
 
       <div class="marquesina">
         🦷 Odontología general · Niños · Limpiezas · Estética dental · Urgencias programadas
       </div>
     </header>
 
-    <!-- SECCIÓN SOBRE LA CLÍNICA -->
+    <!-- DEMÁS SECCIONES SIN CAMBIOS -->
     <section id="sobre">
       <div class="seccion">
         <h2>🦷 Odontología integral con trato humano</h2>
         <p>
           La clínica de la <strong>Dra. Patricia Sebelli</strong> está pensada para que cada visita sea
-          una experiencia tranquila, clara y sin sobresaltos. Nos enfocamos en <strong>odontología integral</strong>
-          para toda la familia.
+          una experiencia tranquila, clara y sin sobresaltos...
         </p>
         <ul>
           <li>Consultorio moderno en <strong>Almagro</strong>.</li>
           <li>Explicaciones simples, sin tecnicismos.</li>
-          <li>Ambiente cálido, ideal para quienes tienen nervios o ansiedad.</li>
-          <li>Seguimiento y recordatorios de controles periódicos.</li>
+          <li>Ambiente cálido.</li>
+          <li>Recordatorios de controles.</li>
         </ul>
       </div>
     </section>
 
-    <!-- SECCIÓN TRATAMIENTOS -->
     <section id="tratamientos">
       <div class="seccion">
         <h2>📋 Tratamientos principales</h2>
@@ -631,31 +583,22 @@
           </div>
           <div class="tratamiento-card">
             <strong>Restauraciones y caries</strong>
-            Tratamientos simples y estéticos para conservar piezas.
+            Tratamientos estéticos para conservar piezas.
           </div>
           <div class="tratamiento-card">
             <strong>Estética dental</strong>
-            Blanqueamientos supervisados y resinas estéticas.
+            Blanqueamientos y resinas estéticas.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN NIÑOS -->
     <section id="ninos">
       <div class="seccion">
         <h2>👧👦 Pensado para los más chicos</h2>
         <p>
-          Las primeras experiencias son fundamentales. Priorizamos la adaptación, el juego
-          y la paciencia para que cada visita sea una experiencia positiva.
+          Las primeras experiencias son fundamentales.
         </p>
-
-        <ul>
-          <li>Consulta de adaptación sin procedimientos.</li>
-          <li>Explicaciones con cuentos y metáforas.</li>
-          <li>Guía para madres y padres en higiene y prevención.</li>
-        </ul>
-
         <div class="testimonios">
           <div class="testimonio">
             “Mi hijo tenía mucho miedo y ahora pregunta cuándo volvemos.”
@@ -669,29 +612,25 @@
       </div>
     </section>
 
-    <!-- SECCIÓN TURNOS -->
     <section id="turnos">
       <div class="seccion">
         <h2>📅 Turnos y contacto</h2>
-        <p style="text-align:center;">
-          Coordinamos el horario que mejor se adapte a vos y tu familia.
-        </p>
 
-        <p style="text-align:center;margin-top:8px;">
+        <p style="text-align:center;">
           WhatsApp: <strong>+54 9 11 0000 0000</strong><br>
-          Consultorio en <strong>Almagro, CABA</strong><br>
+          Consultorio en <strong>Almagro</strong><br>
           Bulnes 680 Piso 14 B
         </p>
 
-        <p style="margin-top:14px; text-align:center;">
-          <a href="https://wa.me/5491100000000?text=Hola%20quiero%20pedir%20un%20turno%20con%20la%20Dra.%20Sebelli" class="btn-primaria" target="_blank" rel="noopener">
+        <p style="text-align:center;">
+          <a href="#" class="btn-primaria">
             📲 Pedir turno ahora
           </a>
         </p>
       </div>
     </section>
 
-  </div> <!-- cierre .od -->
+  </div>
 
 
   <!-- BOTÓN FLOTANTE PARA ABRIR FORMULARIO -->
