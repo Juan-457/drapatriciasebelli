@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -350,6 +350,16 @@
       border-radius:18px;
       padding:14px 14px 16px;
       border:1px solid rgba(15,118,110,.12);
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(16px) scale(.98);
+      transition:opacity .2s ease, transform .2s ease;
+    }
+
+    .contact-float.contact-float--open{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0) scale(1);
     }
 
     .contact-float h3{
@@ -450,6 +460,33 @@
       font-weight:500;
     }
 
+    /* ===== BOTÓN FLOTANTE PARA ABRIR FORM ===== */
+    .contact-toggle{
+      position:fixed;
+      right:20px;
+      bottom:24px;
+      z-index:1299;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      border:none;
+      cursor:pointer;
+      background:#0f766e;
+      color:#f9fafb;
+      font-size:24px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 6px 18px rgba(0,0,0,.35);
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .contact-toggle:hover{
+      transform:scale(1.06);
+      box-shadow:0 9px 24px rgba(0,0,0,.4);
+      background:#0b5b56;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (min-width:900px){
       .od nav .brand{display:none;}
@@ -467,6 +504,11 @@
         bottom:16px;
         width:auto;
         max-width:none;
+      }
+
+      .contact-toggle{
+        right:16px;
+        bottom:18px;
       }
     }
 
@@ -681,6 +723,11 @@
 
   </div>
 
+  <!-- BOTÓN FLOTANTE PARA DESPLEGAR EL FORMULARIO -->
+  <button class="contact-toggle" id="contactToggle" aria-label="Abrir formulario de consulta" aria-expanded="false">
+    📝
+  </button>
+
   <!-- FORMULARIO FLOTANTE PARA POWER AUTOMATE -->
   <div class="contact-float" id="contactBox">
     <h3>Consultas de la clínica</h3>
@@ -760,6 +807,15 @@
       const form = document.getElementById('contactForm');
       const statusEl = document.getElementById('formStatus');
       const submitBtn = document.getElementById('submitBtn');
+      const contactBox = document.getElementById('contactBox');
+      const toggleBtn = document.getElementById('contactToggle');
+
+      if (toggleBtn && contactBox){
+        toggleBtn.addEventListener('click', () => {
+          const isOpen = contactBox.classList.toggle('contact-float--open');
+          toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      }
 
       if (form) {
         form.addEventListener('submit', async (e) => {
@@ -771,7 +827,6 @@
           }
 
           const PA_ENDPOINT = "https://default5243832e5a814f3d9656d9f5b8364a.23.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/12688bd405594ecb8bccc3adb328f237/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=kEgrv34Vm2M-c4d1hRB5lf-9ZStrWXDhNXdC4lLnQCo"; 
-          // 🔁 Reemplazá esto por la URL del trigger "When an HTTP request is received"
 
           const payload = {
             nombre: document.getElementById('nombre').value.trim(),
@@ -839,3 +894,4 @@
   </footer>
 </body>
 </html>
+
