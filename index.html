@@ -20,9 +20,9 @@
 
     *{box-sizing:border-box}
     html{
-  scroll-behavior:smooth;
-  -webkit-text-size-adjust:100%; /* evita que Safari agrande el texto */
-}
+      scroll-behavior:smooth;
+      -webkit-text-size-adjust:100%; /* evita que Safari agrande el texto */
+    }
     body{margin:0;}
 
     /* ===== LAYOUT GENERAL ===== */
@@ -337,25 +337,118 @@
       color:#047857;
     }
 
-    /* ===== WHATSAPP FLOAT ===== */
-    .whatsapp-float{
+    /* ===== FORMULARIO FLOTANTE ===== */
+    .contact-float{
       position:fixed;
       right:20px;
       bottom:24px;
       z-index:1300;
+      width:320px;
+      max-width:calc(100% - 40px);
+      background:var(--bgCard);
+      box-shadow:0 10px 28px rgba(0,0,0,.35);
+      border-radius:18px;
+      padding:14px 14px 16px;
+      border:1px solid rgba(15,118,110,.12);
+    }
+
+    .contact-float h3{
+      margin:0 0 4px;
+      font-size:15px;
+      color:#0f766e;
+      font-weight:700;
+      text-align:left;
+    }
+
+    .contact-float p{
+      margin:0 0 10px;
+      font-size:13px;
+      color:#065f46;
+    }
+
+    .contact-float form{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .contact-float label{
+      font-size:12px;
+      color:#04323a;
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .contact-float input,
+    .contact-float select,
+    .contact-float textarea{
+      font-family:inherit;
+      font-size:13px;
+      padding:6px 8px;
+      border-radius:8px;
+      border:1px solid #cbd5e1;
+      outline:none;
+    }
+
+    .contact-float input:focus,
+    .contact-float select:focus,
+    .contact-float textarea:focus{
+      border-color:#0f766e;
+      box-shadow:0 0 0 1px rgba(15,118,110,.25);
+    }
+
+    .contact-float textarea{
+      min-height:52px;
+      resize:vertical;
+      max-height:110px;
+    }
+
+    .contact-float button[type="submit"]{
+      margin-top:4px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:none;
+      font-weight:700;
+      font-size:13px;
+      cursor:pointer;
+      background:#0f766e;
+      color:#f9fafb;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:64px;
-      height:64px;
-      background:#25D366;
-      border-radius:50%;
+      transition:background .15s ease, transform .1s ease, box-shadow .15s ease;
       box-shadow:0 6px 16px rgba(0,0,0,.25);
-      text-decoration:none;
-      transition:transform .15s ease;
     }
-    .whatsapp-float img{width:34px;height:34px}
-    .whatsapp-float:hover{transform:scale(1.06)}
+
+    .contact-float button[type="submit"]:hover{
+      background:#0b5b56;
+      transform:translateY(-1px);
+      box-shadow:0 8px 20px rgba(0,0,0,.3);
+    }
+
+    .contact-float button[type="submit"]:disabled{
+      opacity:.7;
+      cursor:default;
+      transform:none;
+      box-shadow:none;
+    }
+
+    .form-status{
+      margin-top:6px;
+      font-size:12px;
+      min-height:16px;
+    }
+
+    .form-status--ok{
+      color:#047857;
+      font-weight:600;
+    }
+
+    .form-status--error{
+      color:#b91c1c;
+      font-weight:500;
+    }
 
     /* ===== RESPONSIVE ===== */
     @media (min-width:900px){
@@ -367,65 +460,71 @@
       .od nav .hamburger{display:block}
       .od nav .links:not(.mobile){display:none}
       .od .seccion{background:#ffffff;}
+
+      .contact-float{
+        right:10px;
+        left:10px;
+        bottom:16px;
+        width:auto;
+        max-width:none;
+      }
     }
 
-   /* ===== FOOTER NEGRO UMANOAI ===== */
-.footer-umanoai{
-  background:#000;
-  padding:28px 20px calc(28px + env(safe-area-inset-bottom));
-  margin-top:40px;
-}
+    /* ===== FOOTER NEGRO UMANOAI ===== */
+    .footer-umanoai{
+      background:#000;
+      padding:28px 20px calc(28px + env(safe-area-inset-bottom));
+      margin-top:40px;
+    }
 
-.footer-umanoai .footer-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  text-align:center;
-}
+    .footer-umanoai .footer-inner{
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      text-align:center;
+    }
 
-.footer-umanoai .copy{
-  color:#fff;      /* AHORA EN BLANCO */
-  font-size:14px;
-  margin:0;
-}
+    .footer-umanoai .copy{
+      color:#fff;
+      font-size:14px;
+      margin:0;
+    }
 
-.footer-umanoai .designed{
-  margin:0;
-  margin-top:4px;
-  color:#fff;      /* TAMBIÉN EN BLANCO */
-  font-size:13px;
-  opacity:.9;
-}
+    .footer-umanoai .designed{
+      margin:0;
+      margin-top:4px;
+      color:#fff;
+      font-size:13px;
+      opacity:.9;
+    }
 
-.footer-umanoai strong{
-  color:#38bdf8; /* celeste branding */
-}
+    .footer-umanoai strong{
+      color:#38bdf8; /* celeste branding */
+    }
 
-.umanoai-brand{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  opacity:.9;
-  transition:opacity .2s ease, transform .2s ease;
-}
+    .umanoai-brand{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      opacity:.9;
+      transition:opacity .2s ease, transform .2s ease;
+    }
 
-.umanoai-brand:hover{
-  opacity:1;
-  transform:scale(1.05);
-}
+    .umanoai-brand:hover{
+      opacity:1;
+      transform:scale(1.05);
+    }
 
-.umanoai-logo{
-  height:34px;
-  width:auto;
-  display:block;
-}
-
-
+    .umanoai-logo{
+      height:34px;
+      width:auto;
+      display:block;
+    }
   </style>
 </head>
 
@@ -582,12 +681,60 @@
 
   </div>
 
-  <!-- WHATSAPP FLOAT -->
-  <a class="whatsapp-float" href="https://wa.me/5491100000000" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Clínica Dental" />
-  </a>
+  <!-- FORMULARIO FLOTANTE PARA POWER AUTOMATE -->
+  <div class="contact-float" id="contactBox">
+    <h3>Consultas de la clínica</h3>
+    <p>Dejanos tus datos y durante los días de consultoría nos comunicaremos.</p>
+    <form id="contactForm">
+      <label for="nombre">
+        Nombre y apellido*
+        <input type="text" id="nombre" name="nombre" required autocomplete="name" />
+      </label>
 
-  <!-- JS MENU MOBILE + AÑO FOOTER -->
+      <label for="telefono">
+        Teléfono / WhatsApp*
+        <input type="tel" id="telefono" name="telefono" required autocomplete="tel" />
+      </label>
+
+      <label for="email">
+        Email (opcional)
+        <input type="email" id="email" name="email" autocomplete="email" />
+      </label>
+
+      <label for="motivo">
+        Motivo de la consulta*
+        <select id="motivo" name="motivo" required>
+          <option value="">Seleccioná una opción</option>
+          <option value="control-limpieza">Control y limpieza</option>
+          <option value="ninos">Consulta para niños</option>
+          <option value="dolor-urgencia">Dolor / urgencia</option>
+          <option value="estetica">Estética dental</option>
+          <option value="otro">Otro</option>
+        </select>
+      </label>
+
+      <label for="horario">
+        Preferencia de horario
+        <select id="horario" name="horario">
+          <option value="">Sin preferencia</option>
+          <option value="manana">Mañana</option>
+          <option value="tarde">Tarde</option>
+          <option value="sabado">Sábado</option>
+        </select>
+      </label>
+
+      <label for="mensaje">
+        Comentario
+        <textarea id="mensaje" name="mensaje" placeholder="Contanos brevemente tu consulta"></textarea>
+      </label>
+
+      <button type="submit" id="submitBtn">Enviar formulario</button>
+
+      <div class="form-status" id="formStatus" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <!-- JS MENU MOBILE + FORMULARIO -->
   <script>
     (function(){
       const btn = document.querySelector('.od .hamburger');
@@ -609,26 +756,86 @@
       if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
       }
+
+      const form = document.getElementById('contactForm');
+      const statusEl = document.getElementById('formStatus');
+      const submitBtn = document.getElementById('submitBtn');
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          const PA_ENDPOINT = "https://default5243832e5a814f3d9656d9f5b8364a.23.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/12688bd405594ecb8bccc3adb328f237/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=kEgrv34Vm2M-c4d1hRB5lf-9ZStrWXDhNXdC4lLnQCo"; 
+          // 🔁 Reemplazá esto por la URL del trigger "When an HTTP request is received"
+
+          const payload = {
+            nombre: document.getElementById('nombre').value.trim(),
+            telefono: document.getElementById('telefono').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            motivo: document.getElementById('motivo').value,
+            horario: document.getElementById('horario').value,
+            mensaje: document.getElementById('mensaje').value.trim(),
+            origen: "Web Dra. Patricia Sebelli"
+          };
+
+          statusEl.textContent = "";
+          statusEl.className = "form-status";
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando...";
+
+          try {
+            const resp = await fetch(PA_ENDPOINT, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(payload)
+            });
+
+            if (!resp.ok) {
+              throw new Error("Error en la respuesta del servidor");
+            }
+
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Enviar formulario";
+
+            statusEl.textContent = "Formulario Enviado, Durante los dias de consultoria nos comunicaremos, Muchas gracias";
+            statusEl.classList.add("form-status--ok");
+          } catch (err) {
+            console.error(err);
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Enviar formulario";
+            statusEl.textContent = "Ocurrió un error. Si el problema continúa, podés escribirnos por WhatsApp.";
+            statusEl.classList.add("form-status--error");
+          }
+        });
+      }
     });
   </script>
 
- <!-- ===== FOOTER NEGRO PROFESIONAL ===== -->
-<footer class="footer-umanoai">
-  <div class="footer-inner">
+  <!-- ===== FOOTER NEGRO PROFESIONAL ===== -->
+  <footer class="footer-umanoai">
+    <div class="footer-inner">
 
-    <p class="copy">
-      © <span id="year"></span> Dra. Patricia Sebelli · Todos los derechos reservados.
-    </p>
+      <p class="copy">
+        © <span id="year"></span> Dra. Patricia Sebelli · Todos los derechos reservados.
+      </p>
 
-    <p class="designed">
-      Diseñado por <strong>UmanoAI</strong>
-    </p>
+      <p class="designed">
+        Diseñado por <strong>UmanoAI</strong>
+      </p>
 
-    <a href="https://umanoai.com.ar" target="_blank" class="umanoai-brand">
-      <img src="umanoai (1).png" alt="UmanoAI" class="umanoai-logo">
-    </a>
+      <a href="https://umanoai.com.ar" target="_blank" class="umanoai-brand">
+        <img src="umanoai (1).png" alt="UmanoAI" class="umanoai-logo">
+      </a>
 
-  </div>
-</footer>
+    </div>
+  </footer>
 </body>
 </html>
