@@ -59,74 +59,37 @@
       z-index:-2;
     }
 
-    /* ❌ Sin capa oscura sobre el video */
-
     .od header h1{
       color:#fff;
-      margin:0 12px 10px;
-      font-size:clamp(28px,5vw,42px);
+      margin:0 0 8px;
+      font-size:clamp(26px,4.6vw,36px);
       font-weight:800;
-      text-shadow:0 2px 14px rgba(0,0,0,.45);
+      text-shadow:0 2px 12px rgba(0,0,0,.5);
     }
     .od header .hero-subtitle{
-      color:#f5f5f5;
-      max-width:640px;
+      color:#f9fafb;
+      max-width:480px;
       margin:0 auto;
-      font-size:clamp(15px,3.1vw,19px);
+      font-size:clamp(14px,3.2vw,17px);
       font-weight:500;
-      text-shadow:0 2px 10px rgba(0,0,0,.5);
+      text-shadow:0 2px 8px rgba(0,0,0,.55);
     }
 
-    /* 💬 BURBUJA DEL HERO + BRILLOS ESPEJADOS */
+    /* 💬 TARJETA TIPO BURBUJA (GLASSMORPHISM) */
     .od .hero-bubbles{
       position:relative;
-      padding:24px 32px 26px;
-      border-radius:40px;
-      max-width:980px;
-      background:rgba(255,255,255,.78);
-      box-shadow:0 18px 40px rgba(0,0,0,.30);
-    }
-
-    .od .hero-bubbles::before,
-    .od .hero-bubbles::after{
-      content:"";
-      position:absolute;
-      border-radius:999px;
-      z-index:-1;
-      pointer-events:none;
-    }
-
-    /* brillo menta izquierda */
-    .od .hero-bubbles::before{
-      width:55%;
-      height:120%;
-      left:-10%;
-      top:-12%;
-      background:
-        radial-gradient(circle at 20% 40%, rgba(82,199,184,.45), transparent 65%);
-      opacity:.85;
-      filter:blur(2px);
-    }
-
-    /* brillo menta derecho espejado */
-    .od .hero-bubbles::after{
-      width:55%;
-      height:115%;
-      right:-12%;
-      bottom:-16%;
-      background:
-        radial-gradient(circle at 80% 60%, rgba(82,199,184,.40), transparent 65%);
-      opacity:.85;
-      transform:scaleX(-1);
-      filter:blur(2px);
-    }
-
-    .od header .hero-cta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:center;
-      margin-bottom:42px;
+      width:min(90%, 640px);
+      margin:0 auto;
+      padding:22px 26px 24px;
+      border-radius:28px;
+      background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.90),
+        rgba(255,255,255,0.78)
+      );
+      border:1px solid rgba(255,255,255,0.85);
+      box-shadow:0 16px 32px rgba(0,0,0,0.35);
+      backdrop-filter:blur(18px);
     }
 
     .od .marquesina{
@@ -134,11 +97,11 @@
       bottom:16px;
       left:50%;
       transform:translateX(-50%);
-      background:rgba(255,255,255,.96);
+      background:rgba(255,255,255,.98);
       color:#111827;
       padding:10px 20px;
       border-radius:999px;
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(12px);
       max-width:92%;
       font-weight:700;
       font-size:clamp(14px,3.2vw,18px);
@@ -518,16 +481,13 @@
       }
 
       .od .hero-bubbles{
-        padding:20px 18px 20px;
-        border-radius:28px;
+        width:min(94%, 360px);
+        padding:18px 18px 20px;
+        border-radius:22px;
       }
 
-      .od .hero-bubbles::before,
-      .od .hero-bubbles::after{
-        width:80%;
-        height:105%;
-        left:10%;
-        right:auto;
+      .od header h1{
+        font-size:clamp(22px,6vw,26px);
       }
     }
 
@@ -919,4 +879,3 @@
   </footer>
 </body>
 </html>
-
