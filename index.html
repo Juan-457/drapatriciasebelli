@@ -76,33 +76,49 @@
     }
 
     /* 💬 TARJETA TIPO BURBUJA (GLASSMORPHISM) */
-   .od .hero-bubbles{
-  position:relative;
-  width:min(90%, 640px);
-  margin:0 auto;
-  padding:22px 26px 24px;
-  border-radius:28px;
-  background:linear-gradient(
-    135deg,
-    rgba(82,199,184,0.16),   /* menta muy suave */
-    rgba(255,255,255,0.90)
-  );
-  border:1px solid rgba(255,255,255,0.85);
-  box-shadow:0 16px 32px rgba(0,0,0,0.35);
-  backdrop-filter:blur(18px);
-}
+    .od .hero-bubbles{
+      position:relative;
+      width:min(90%, 640px);
+      margin:0 auto;
+      padding:22px 26px 24px;
+      border-radius:28px;
+      background:linear-gradient(
+        135deg,
+        rgba(82,199,184,0.16),
+        rgba(255,255,255,0.94)
+      );
+      border:1px solid rgba(255,255,255,0.85);
+      box-shadow:0 16px 32px rgba(0,0,0,0.35);
+      backdrop-filter:blur(18px);
+      color:#0f172a; /* texto oscuro en la burbuja */
+    }
 
+    .od .hero-bubbles h1{
+      color:#0f172a;      /* letras negras/oscuro */
+      text-shadow:none;   /* sin sombra para glass limpio */
+      margin-top:0;
+    }
+
+    .od .hero-bubbles .hero-subtitle{
+      color:#111827;      /* gris muy oscuro */
+      text-shadow:none;
+    }
 
     .od .marquesina{
       position:absolute;
       bottom:16px;
       left:50%;
       transform:translateX(-50%);
-      background:rgba(255,255,255,.98);
-      color:#111827;
       padding:10px 20px;
       border-radius:999px;
-      backdrop-filter:blur(12px);
+      background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.94),
+        rgba(226,232,240,0.9)
+      );
+      border:1px solid rgba(255,255,255,0.95);
+      color:#111827; /* letras oscuras */
+      backdrop-filter:blur(18px);
       max-width:92%;
       font-weight:700;
       font-size:clamp(14px,3.2vw,18px);
@@ -193,8 +209,9 @@
       transform:translateY(-1px);
     }
 
+    /* 🔽 Mobile first: mostrar hamburguesa, ocultar menú desktop */
     .od nav .hamburger{
-      display:none;
+      display:block;
       cursor:pointer;
       border:2px solid rgba(255,255,255,.7);
       background:rgba(15,23,42,.85);
@@ -209,6 +226,10 @@
       width:26px;
       height:26px;
       display:block;
+    }
+
+    .od nav .links:not(.mobile){
+      display:none;
     }
 
     .od .links.mobile{
@@ -465,9 +486,6 @@
     }
 
     @media (max-width:700px){
-      .od nav .hamburger{display:block}
-      .od nav .links:not(.mobile){display:none}
-
       .contact-float{
         right:10px;
         left:10px;
@@ -489,6 +507,19 @@
 
       .od header h1{
         font-size:clamp(22px,6vw,26px);
+      }
+    }
+
+    /* Desktop: mostramos menú completo y ocultamos hamburguesa / menú mobile */
+    @media (min-width:701px){
+      .od nav .hamburger{
+        display:none;
+      }
+      .od nav .links:not(.mobile){
+        display:flex;
+      }
+      .od .links.mobile{
+        display:none!important;
       }
     }
 
@@ -597,7 +628,7 @@
       </div>
 
       <div class="marquesina">
-        🦷 Odontología general · Niños · Limpiezas · Estética dental · Urgencias programadas
+        🦷 Odontología general · Niños · Limpiezas · Estética dental.
       </div>
     </header>
 
@@ -682,7 +713,7 @@
         </p>
 
         <p style="text-align:center;margin-top:8px;">
-          Turnos: <strong>+54 9 11 </strong><br>
+          Turnos: <strong>+54 9 11 4749-5512</strong><br>
           Consultorio en <strong>Almagro, CABA</strong><br>
           Bulnes 680 Piso 14 B
         </p>
@@ -875,3 +906,4 @@
   </footer>
 </body>
 </html>
+
