@@ -589,6 +589,12 @@
         </p>
 
         <p style="text-align:center;margin-top:8px;">
+          También podés completar el
+          <a href="#" id="openContactFormLink">formulario de contacto</a>
+          y durante los días de consultorio nos estaremos comunicando con vos.
+        </p>
+
+        <p style="text-align:center;margin-top:8px;">
           Turnos: <strong>+54 9 11 4749-5512</strong><br>
           Consultorio en <strong>Almagro, CABA</strong><br>
           Bulnes 680 Piso 14 B
@@ -611,7 +617,7 @@
     <button class="close-form" id="closeFormBtn" aria-label="Cerrar formulario">✖</button>
 
     <h3>Consultas de la clínica</h3>
-    <p>Completá tus datos y nos comunicaremos durante los días de consultoría.</p>
+    <p>Completá tus datos y nos comunicaremos durante los días de consultorio.</p>
 
     <form id="contactForm">
 
@@ -682,6 +688,7 @@
       const contactBox = document.getElementById('contactBox');
       const toggleBtn = document.getElementById('contactToggle');
       const closeBtn = document.getElementById('closeFormBtn');
+      const openFormLink = document.getElementById('openContactFormLink');
 
       if (toggleBtn && contactBox){
         toggleBtn.addEventListener('click', () => {
@@ -694,6 +701,14 @@
         closeBtn.addEventListener('click', () => {
           contactBox.classList.remove('contact-float--open');
           toggleBtn.setAttribute('aria-expanded','false');
+        });
+      }
+
+      if (openFormLink && contactBox && toggleBtn) {
+        openFormLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          contactBox.classList.add('contact-float--open');
+          toggleBtn.setAttribute('aria-expanded', 'true');
         });
       }
 
