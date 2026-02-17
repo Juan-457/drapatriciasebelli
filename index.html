@@ -716,6 +716,20 @@
       const openFormLink = document.getElementById('openContactFormLink');
       const heroContactCta = document.getElementById('heroContactCta');
 
+      const trackGa4Event = (eventName, eventParams = {}) => {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', eventName, eventParams);
+          return;
+        }
+
+        if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push({
+            event: eventName,
+            ...eventParams
+          });
+        }
+      };
+
       const openContactForm = () => {
         if (!contactBox || !toggleBtn) return;
         contactBox.classList.add('contact-float--open');
@@ -772,6 +786,12 @@
             origen: "Web Dra. Patricia Sebelli"
           };
 
+          trackGa4Event('form_submit_click', {
+            form_name: 'contacto_clinica',
+            motivo: payload.motivo || 'sin_motivo',
+            cobertura: payload.dni || 'sin_cobertura'
+          });
+
           statusEl.textContent = "";
           statusEl.className = "form-status";
           submitBtn.disabled = true;
@@ -794,12 +814,21 @@
             submitBtn.disabled = false;
             submitBtn.textContent = "Enviar";
 
+            trackGa4Event('form_submit_success', {
+              form_name: 'contacto_clinica'
+            });
+
             statusEl.textContent = "Formulario enviado. Durante los días de consultoría nos comunicaremos. Muchas gracias.";
             statusEl.classList.add("form-status--ok");
           } catch (err) {
             console.error(err);
             submitBtn.disabled = false;
             submitBtn.textContent = "Enviar";
+
+            trackGa4Event('form_submit_error', {
+              form_name: 'contacto_clinica'
+            });
+
             statusEl.textContent = "Ocurrió un error. Si el problema continúa, podés escribirnos por WhatsApp.";
             statusEl.classList.add("form-status--error");
           }
