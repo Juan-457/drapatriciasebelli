@@ -47,7 +47,7 @@
       overflow:hidden;
       isolation:isolate;
       padding:0 16px;
-      padding-top:calc(80px + env(safe-area-inset-top, 0px));
+      padding-top:calc(30px + env(safe-area-inset-top, 0px));
       padding-bottom:calc(24px + env(safe-area-inset-bottom, 0px));
     }
 
@@ -61,70 +61,87 @@
       z-index:-2;
     }
 
+    .od header::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:
+        linear-gradient(180deg, rgba(2,6,23,.65), rgba(2,6,23,.78)),
+        radial-gradient(circle at 50% 18%, rgba(20,184,166,.24), transparent 42%);
+    }
+
+    .od .hero-content{
+      width:min(92%, 920px);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:16px;
+      color:#f8fafc;
+    }
+
+    .od .hero-logo{
+      width:clamp(123px,18.2vw,182px);
+      height:auto;
+      filter:drop-shadow(0 8px 20px rgba(14,165,233,.28));
+    }
+
     .od header h1{
       color:#fff;
-      margin:0 0 8px;
-      font-size:clamp(26px,4.6vw,36px);
+      margin:0;
+      max-width:900px;
+      font-size:clamp(34px,5.2vw,62px);
+      line-height:1.12;
       font-weight:800;
-      text-shadow:0 2px 12px rgba(0,0,0,.5);
+      text-shadow:0 2px 20px rgba(0,0,0,.55);
     }
     .od header .hero-subtitle{
-      color:#f9fafb;
-      max-width:480px;
+      color:#e2e8f0;
+      max-width:860px;
       margin:0 auto;
-      font-size:clamp(14px,3.2vw,17px);
+      font-size:clamp(16px,2.4vw,30px);
       font-weight:500;
-      text-shadow:0 2px 8px rgba(0,0,0,.55);
+      text-shadow:0 2px 12px rgba(0,0,0,.6);
     }
 
-    /* 💬 TARJETA TIPO BURBUJA (GLASSMORPHISM) */
-    .od .hero-bubbles{
-      position:relative;
-      width:min(90%, 640px);
-      margin:0 auto;
-      padding:22px 26px 24px;
-      border-radius:28px;
-      background:linear-gradient(
-        135deg,
-        rgba(82,199,184,0.16),
-        rgba(255,255,255,0.94)
-      );
-      border:1px solid rgba(255,255,255,0.85);
-      box-shadow:0 16px 32px rgba(0,0,0,0.35);
-      backdrop-filter:blur(18px);
-      color:#0f172a; /* texto oscuro en la burbuja */
+    .od .hero-pills{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top:4px;
     }
 
-    .od .hero-bubbles h1{
-      color:#0f172a;      /* letras negras/oscuro */
-      text-shadow:none;   /* sin sombra para glass limpio */
-      margin-top:0;
-    }
-
-    .od .hero-bubbles .hero-subtitle{
-      color:#111827;      /* gris muy oscuro */
-      text-shadow:none;
-    }
-
-    .od .marquesina{
-      position:absolute;
-      bottom:16px;
-      left:50%;
-      transform:translateX(-50%);
-      padding:10px 20px;
+    .od .hero-pills a{
+      color:#e2e8f0;
+      text-decoration:none;
+      padding:10px 18px;
       border-radius:999px;
-      background:linear-gradient(
-        135deg,
-        rgba(255,255,255,0.94),
-        rgba(226,232,240,0.9)
-      );
-      border:1px solid rgba(255,255,255,0.95);
-      color:#111827; /* letras oscuras */
-      backdrop-filter:blur(18px);
-      max-width:92%;
-      font-weight:700;
-      font-size:clamp(14px,3.2vw,18px);
-      box-shadow:0 10px 26px rgba(0,0,0,.30);
+      border:1px solid rgba(226,232,240,.38);
+      background:rgba(15,23,42,.38);
+      backdrop-filter:blur(8px);
+      font-weight:600;
+      transition:all .15s ease;
+    }
+
+    .od .hero-pills a:hover{
+      background:rgba(15,118,110,.55);
+      border-color:rgba(153,246,228,.58);
+      transform:translateY(-1px);
+    }
+
+    .od .hero-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:10px;
+      padding:11px 26px;
+      border-radius:999px;
+      color:#06261f;
+      text-decoration:none;
+      font-weight:800;
+      background:linear-gradient(135deg,#34d399,#22c55e);
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
     }
 
     /* ===== LOGO ABAJO IZQUIERDA ===== */
@@ -141,123 +158,6 @@
     .od .logo-sticky:hover{
       opacity:.98;
       transform:scale(1.03);
-    }
-
-    /* ===== NAV ===== */
-    .od nav{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:1200;
-      background:linear-gradient(90deg,#0f172a,#0f766e,#14b8a6);
-      background-size:200% 100%;
-      box-shadow:0 2px 12px rgba(0,0,0,.35);
-      backdrop-filter:blur(10px);
-      animation:navGlow 18s ease-in-out infinite alternate;
-    }
-
-    @keyframes navGlow{
-      from{background-position:0% 0}
-      to{background-position:100% 0}
-    }
-
-    .od nav .nav-inner{
-      max-width:1100px;
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      gap:22px;
-      padding:10px 12px 10px;
-    }
-
-    .od nav .brand{
-      color:#e0f2f1;
-      font-weight:600;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:13px;
-      opacity:.9;
-      margin-left:12px;
-      white-space:nowrap;
-    }
-
-    .od nav .links{
-      display:flex;
-      gap:22px;
-      list-style:none;
-      margin:0 auto;
-      padding:0;
-      font-weight:700;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      font-size:12px;
-      justify-content:center;
-      flex:1;
-    }
-
-    .od nav .links a{
-      color:#f9fafb;
-      padding:8px 6px;
-      border-radius:999px;
-      text-decoration:none;
-      opacity:.85;
-      transition:opacity .15s ease, background .15s ease, transform .1s ease;
-    }
-
-    .od nav .links a:hover{
-      opacity:1;
-      background:rgba(255,255,255,.10);
-      transform:translateY(-1px);
-    }
-
-    /* 🔽 Mobile first: mostrar hamburguesa, ocultar menú desktop */
-    .od nav .hamburger{
-      display:block;
-      cursor:pointer;
-      border:2px solid rgba(255,255,255,.7);
-      background:rgba(15,23,42,.85);
-      color:#fff;
-      padding:8px;
-      border-radius:999px;
-      margin-left:8px;
-      box-shadow:0 2px 8px rgba(0,0,0,.4);
-    }
-
-    .od nav .hamburger svg{
-      width:26px;
-      height:26px;
-      display:block;
-    }
-
-    .od nav .links:not(.mobile){
-      display:none;
-    }
-
-    .od .links.mobile{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      position:absolute;
-      left:0;
-      right:0;
-      top:100%;
-      background:rgba(15,23,42,.96);
-      border-radius:0 0 16px 16px;
-      box-shadow:0 16px 30px rgba(0,0,0,.45);
-      padding:10px 16px 14px;
-      z-index:1202;
-    }
-
-    .od .links.mobile[hidden]{display:none!important}
-    .od .links.mobile a{
-      padding:10px 0;
-      border-radius:10px;
-      color:#f9fafb;
-      border-bottom:1px solid rgba(148,163,184,.3);
-    }
-    .od .links.mobile a:last-child{
-      border-bottom:none;
     }
 
     /* ===== SECCIONES ===== */
@@ -501,27 +401,16 @@
         bottom:18px;
       }
 
-      .od .hero-bubbles{
-        width:min(94%, 360px);
-        padding:18px 18px 20px;
-        border-radius:22px;
+      .od .hero-content{
+        gap:14px;
       }
 
       .od header h1{
-        font-size:clamp(22px,6vw,26px);
+        font-size:clamp(30px,10vw,42px);
       }
-    }
 
-    /* Desktop: mostramos menú completo y ocultamos hamburguesa / menú mobile */
-    @media (min-width:701px){
-      .od nav .hamburger{
-        display:none;
-      }
-      .od nav .links:not(.mobile){
-        display:flex;
-      }
-      .od .links.mobile{
-        display:none!important;
+      .od header .hero-subtitle{
+        font-size:clamp(15px,4.8vw,19px);
       }
     }
 
@@ -588,49 +477,28 @@
     <!-- LOGO STICKY -->
     <img src="logo-clinica.png" alt="Logo Dra. Patricia Sebelli Odontología Integral" class="logo-sticky">
 
-    <!-- NAV -->
-    <nav>
-      <div class="nav-inner">
-        <div class="brand">Dra. Patricia Sebelli · Odontología Integral</div>
-
-        <ul class="links" id="desktopLinks">
-          <li><a href="#sobre">La clínica</a></li>
-          <li><a href="#tratamientos">Tratamientos</a></li>
-          <li><a href="#ninos">Niños</a></li>
-          <li><a href="#turnos">Turnos</a></li>
-        </ul>
-
-        <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 6h18M3 12h18M3 18h18"/>
-          </svg>
-        </button>
-      </div>
-
-      <div class="links mobile" id="mobileMenu" hidden>
-        <a href="#sobre">La clínica</a>
-        <a href="#tratamientos">Tratamientos</a>
-        <a href="#ninos">Niños</a>
-        <a href="#turnos">Turnos</a>
-      </div>
-    </nav>
-
     <!-- HERO -->
     <header>
       <video autoplay muted loop playsinline poster="hero.jpg">
         <source src="hero.mp4" type="video/mp4">
       </video>
 
-      <div class="hero-bubbles">
-        <h1>Sonrisas sanas para toda la familia</h1>
+      <div class="hero-content">
+        <img src="logo-clinica.png" alt="Logo Dra. Patricia Sebelli" class="hero-logo">
+        <h1>Odontología integral para cuidar tu sonrisa en cada etapa</h1>
         <p class="hero-subtitle">
-          Consultorio odontológico de <strong>la Dra. Patricia Sebelli</strong> en Almagro.
-          Odontología integral con un enfoque <strong>cálido y cercano</strong>, ideal para niños y adultos.
+          Combinamos atención profesional, seguimiento cercano y un enfoque cálido
+          para que niñas, niños y adultos se atiendan con confianza.
         </p>
-      </div>
 
-      <div class="marquesina">
-        🦷 Odontología general · Niños · Limpiezas · Estética dental 🦷
+        <div class="hero-pills">
+          <a href="#sobre">La clínica</a>
+          <a href="#tratamientos">Tratamientos</a>
+          <a href="#ninos">Niños</a>
+          <a href="#turnos">Turnos</a>
+        </div>
+
+        <a class="hero-cta" href="#turnos">📝 Reservar consulta</a>
       </div>
     </header>
 
@@ -791,24 +659,8 @@
 
   </div>
 
-  <!-- JS MENU MOBILE + FORMULARIO -->
+  <!-- JS FORMULARIO -->
   <script>
-    (function(){
-      const btn = document.querySelector('.od .hamburger');
-      const mobileMenu = document.getElementById('mobileMenu');
-      if(btn && mobileMenu){
-        btn.addEventListener('click', () => {
-          const isOpen = !mobileMenu.hasAttribute('hidden');
-          if (isOpen) {
-            mobileMenu.setAttribute('hidden','');
-            btn.setAttribute('aria-expanded','false');
-          } else {
-            mobileMenu.removeAttribute('hidden');
-            btn.setAttribute('aria-expanded','true');
-          }
-        });
-      }
-    })();
 
     document.addEventListener('DOMContentLoaded', () => {
       const yearSpan = document.getElementById('year');
