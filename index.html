@@ -500,7 +500,7 @@
           <a href="#turnos">Turnos</a>
         </div>
 
-        <a class="hero-cta" href="#turnos">📝 Reservar consulta</a>
+        <a class="hero-cta" href="#" id="heroContactCta">📝 Reservar consulta</a>
       </div>
     </header>
 
@@ -689,6 +689,14 @@
       const toggleBtn = document.getElementById('contactToggle');
       const closeBtn = document.getElementById('closeFormBtn');
       const openFormLink = document.getElementById('openContactFormLink');
+      const heroContactCta = document.getElementById('heroContactCta');
+
+      const openContactForm = () => {
+        if (!contactBox || !toggleBtn) return;
+        contactBox.classList.add('contact-float--open');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        contactBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
 
       if (toggleBtn && contactBox){
         toggleBtn.addEventListener('click', () => {
@@ -707,8 +715,14 @@
       if (openFormLink && contactBox && toggleBtn) {
         openFormLink.addEventListener('click', (e) => {
           e.preventDefault();
-          contactBox.classList.add('contact-float--open');
-          toggleBtn.setAttribute('aria-expanded', 'true');
+          openContactForm();
+        });
+      }
+
+      if (heroContactCta) {
+        heroContactCta.addEventListener('click', (e) => {
+          e.preventDefault();
+          openContactForm();
         });
       }
 
