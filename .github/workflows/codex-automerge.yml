@@ -1,0 +1,56 @@
+name: Codex PR Auto Merge
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  enable-automerge:
+    if: >-
+      github.event.pull_request.draft == false &&
+      (contains(github.event.pull_request.user.login, 'codex') ||
+      contains(github.actor, 'codex'))
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enable auto-merge for Codex PRs
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pullRequestId = context.payload.pull_request.node_id;
+            const number = context.payload.pull_request.number;
+
+            try {
+              await github.graphql(`
+                mutation($pullRequestId: ID!) {
+                  enablePullRequestAutoMerge(input: {
+                    pullRequestId: $pullRequestId,
+                    mergeMethod: SQUASH
+                  }) {
+                    pullRequest {
+                      number
+                      autoMergeRequest {
+                        enabledAt
+                      }
+                    }
+                  }
+                }
+              `, { pullRequestId });
+
+              core.info(`Auto-merge enabled for PR #${number}`);
+            } catch (error) {
+              const message = String(error.message || error);
+              if (message.includes('Pull request Auto merge is already enabled')) {
+                core.info(`Auto-merge already enabled for PR #${number}`);
+              } else {
+                throw error;
+              }
+            }
