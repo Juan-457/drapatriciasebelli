@@ -16,8 +16,13 @@ jobs:
   enable-automerge:
     if: >-
       github.event.pull_request.draft == false &&
-      (contains(github.event.pull_request.user.login, 'codex') ||
-      contains(github.actor, 'codex'))
+      (
+        contains(github.event.pull_request.user.login, 'codex') ||
+        contains(github.event.pull_request.user.login, 'Codex') ||
+        contains(github.actor, 'codex') ||
+        contains(github.actor, 'Codex') ||
+        github.event.pull_request.user.type == 'Bot'
+      )
     runs-on: ubuntu-latest
 
     steps:
