@@ -172,7 +172,7 @@
     /* ===== LOGO EN BURBUJA GLASS ===== */
     .od .logo-sticky{
       position:fixed;
-      top:18px;
+      bottom:24px;
       left:18px;
       width:96px;
       height:96px;
@@ -196,7 +196,7 @@
 
     @media (max-width:700px){
       .od .logo-sticky{
-        bottom:18px;
+        bottom:calc(12px + env(safe-area-inset-bottom, 0px));
         left:12px;
         width:82px;
         height:82px;
