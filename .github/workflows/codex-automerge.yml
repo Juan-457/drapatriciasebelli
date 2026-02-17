@@ -24,32 +24,52 @@ jobs:
           script: |
             const pullRequestId = context.payload.pull_request.node_id;
             const number = context.payload.pull_request.number;
+            const maxAttempts = 10;
+            const delayMs = 15000;
 
-            try {
-              await github.graphql(`
-                mutation($pullRequestId: ID!) {
-                  enablePullRequestAutoMerge(input: {
-                    pullRequestId: $pullRequestId,
-                    mergeMethod: SQUASH
-                  }) {
-                    pullRequest {
-                      number
-                      autoMergeRequest {
-                        enabledAt
+            const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+            const isUnstableError = (message) =>
+              message.includes('Pull request is in unstable status') ||
+              message.includes('Pull request is in clean status') ||
+              message.includes('Head branch was modified');
+
+            for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+              try {
+                await github.graphql(`
+                  mutation($pullRequestId: ID!) {
+                    enablePullRequestAutoMerge(input: {
+                      pullRequestId: $pullRequestId,
+                      mergeMethod: SQUASH
+                    }) {
+                      pullRequest {
+                        number
+                        autoMergeRequest {
+                          enabledAt
+                        }
                       }
                     }
                   }
+                `, { pullRequestId });
+
+                core.info(`Auto-merge enabled for PR #${number}`);
+                return;
+              } catch (error) {
+                const message = String(error.message || error);
+
+                if (message.includes('Pull request Auto merge is already enabled')) {
+                  core.info(`Auto-merge already enabled for PR #${number}`);
+                  return;
                 }
-              `, { pullRequestId });
 
-              core.info(`Auto-merge enabled for PR #${number}`);
-            } catch (error) {
-              const message = String(error.message || error);
+                if (isUnstableError(message) && attempt < maxAttempts) {
+                  core.warning(
+                    `PR #${number} is not ready for auto-merge yet (attempt ${attempt}/${maxAttempts}). Retrying in ${delayMs / 1000}s...`
+                  );
+                  await sleep(delayMs);
+                  continue;
+                }
 
-              if (message.includes('Pull request Auto merge is already enabled')) {
-                core.info(`Auto-merge already enabled for PR #${number}`);
+                core.setFailed(`Could not enable auto-merge for PR #${number}: ${message}`);
                 return;
               }
-
-              core.setFailed(`Could not enable auto-merge for PR #${number}: ${message}`);
             }
