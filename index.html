@@ -80,12 +80,6 @@
       color:#f8fafc;
     }
 
-    .od .hero-logo{
-      width:clamp(123px,18.2vw,182px);
-      height:auto;
-      filter:drop-shadow(0 8px 20px rgba(14,165,233,.28));
-    }
-
     .od header h1{
       color:#fff;
       margin:0;
@@ -484,7 +478,6 @@
       </video>
 
       <div class="hero-content">
-        <img src="logo-clinica.png" alt="Logo Dra. Patricia Sebelli" class="hero-logo">
         <h1>Odontología integral para cuidar tu sonrisa en cada etapa</h1>
         <p class="hero-subtitle">
           Combinamos atención profesional, seguimiento cercano y un enfoque cálido
@@ -632,8 +625,14 @@
       </label>
 
       <label for="dni">
-        DNI*
-        <input type="text" id="dni" name="dni" required />
+        Cobertura*
+        <select id="dni" name="dni" required>
+          <option value="">Seleccioná una opción</option>
+          <option value="OSDE">OSDE</option>
+          <option value="ITALIANO">ITALIANO</option>
+          <option value="PARTICULAR">PARTICULAR</option>
+          <option value="OTRO">OTRO</option>
+        </select>
       </label>
 
       <label for="telefono">
