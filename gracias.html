@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muchas gracias | Dra. Patricia Sebelli</title>
+  <meta name="description" content="Gracias por completar el formulario de contacto de la Dra. Patricia Sebelli." />
+  <style>
+    :root {
+      --bg: #f6f6f8;
+      --card: #ffffff;
+      --text: #151517;
+      --muted: #575764;
+      --primary: #6d3ccf;
+      --primary-soft: #efe7ff;
+      --border: #e7e7ec;
+      --shadow: 0 12px 34px rgba(17, 17, 23, .10);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 500px at 80% -20%, #ece2ff 0%, transparent 60%),
+        radial-gradient(1000px 400px at 0% 100%, #f4ecff 0%, transparent 55%),
+        var(--bg);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(700px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: clamp(28px, 5vw, 46px);
+      text-align: center;
+    }
+
+    .badge {
+      margin: 0 auto 20px;
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: -.02em;
+      line-height: 1.06;
+    }
+
+    p {
+      margin: 0;
+      font-size: clamp(18px, 2.2vw, 22px);
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: linear-gradient(180deg, #7b4ae4 0%, #6537c4 100%);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+      box-shadow: 0 8px 18px rgba(101, 55, 196, .28);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(101, 55, 196, .33);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      opacity: .94;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="badge" aria-hidden="true">💜</div>
+    <h1>Muchas gracias por completar el formulario</h1>
+    <p>Nos vamos a contactar lo antes posible durante los días de consultorio.</p>
+    <a class="btn" href="/">Volver</a>
+  </main>
+</body>
+</html>
