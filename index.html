@@ -837,8 +837,7 @@
               form_name: 'contacto_clinica'
             });
 
-            statusEl.textContent = "Formulario enviado. Durante los días de consultoría nos comunicaremos. Muchas gracias.";
-            statusEl.classList.add("form-status--ok");
+            window.location.href = "gracias.html";
           } catch (err) {
             console.error(err);
             submitBtn.disabled = false;
