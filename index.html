@@ -750,8 +750,14 @@
         }
       };
 
-      const openContactForm = () => {
+      const openContactForm = (origin = 'unknown') => {
         if (!contactBox || !toggleBtn) return;
+
+        trackGa4Event('form_open_click', {
+          form_name: 'contacto_clinica',
+          click_origin: origin
+        });
+
         contactBox.classList.add('contact-float--open');
         toggleBtn.setAttribute('aria-expanded', 'true');
         contactBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -761,6 +767,13 @@
         toggleBtn.addEventListener('click', () => {
           const isOpen = contactBox.classList.toggle('contact-float--open');
           toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+          if (isOpen) {
+            trackGa4Event('form_open_click', {
+              form_name: 'contacto_clinica',
+              click_origin: 'floating_button'
+            });
+          }
         });
       }
 
@@ -774,14 +787,14 @@
       if (openFormLink && contactBox && toggleBtn) {
         openFormLink.addEventListener('click', (e) => {
           e.preventDefault();
-          openContactForm();
+          openContactForm('turnos_link');
         });
       }
 
       if (heroContactCta) {
         heroContactCta.addEventListener('click', (e) => {
           e.preventDefault();
-          openContactForm();
+          openContactForm('hero_cta');
         });
       }
 
