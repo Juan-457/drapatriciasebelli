@@ -282,6 +282,23 @@
       transform:translate(-50%, -50%);
     }
 
+    .contact-float.hidden{
+      display:none;
+    }
+
+    .contact-close{
+      position:absolute;
+      top:8px;
+      right:10px;
+      border:none;
+      background:transparent;
+      color:#065f46;
+      font-size:22px;
+      line-height:1;
+      cursor:pointer;
+      padding:4px;
+    }
+
     .contact-float h3{
       margin:6px 0 4px;
       font-size:15px;
@@ -362,6 +379,26 @@
     .appointment-result a{
       color:#0f766e;
       font-weight:700;
+    }
+
+    .calendly-embed{
+      margin-top:10px;
+      border:1px solid #cbd5e1;
+      border-radius:10px;
+      overflow:hidden;
+      min-height:420px;
+      background:#fff;
+      display:none;
+    }
+
+    .calendly-embed.visible{
+      display:block;
+    }
+
+    .calendly-embed iframe{
+      width:100%;
+      height:420px;
+      border:0;
     }
 
     @media (max-width:700px){
@@ -577,6 +614,7 @@
 
   <!-- FORMULARIO NUEVO CENTRADO -->
   <div class="contact-float" id="contactBox">
+    <button type="button" class="contact-close" id="closeContactFormBtn" aria-label="Cerrar formulario">×</button>
 
     <h3>Consultas de la clínica</h3>
     <p>Completá tus datos y nos comunicaremos durante los días de consultorio.</p>
@@ -586,6 +624,9 @@
       <input type="text" id="appointmentAnswer" placeholder="Ingresá tu DNI" />
       <button type="button" class="appointment-cta" id="appointmentNextBtn">Continuar</button>
       <div class="appointment-result" id="appointmentResult"></div>
+      <div class="calendly-embed" id="calendlyEmbed">
+        <iframe title="Calendly - Reserva de turnos" loading="lazy" src="about:blank"></iframe>
+      </div>
     </div>
   </div>
 
@@ -601,13 +642,17 @@
       const contactBox = document.getElementById('contactBox');
       const openFormLink = document.getElementById('openContactFormLink');
       const heroContactCta = document.getElementById('heroContactCta');
+      const closeContactFormBtn = document.getElementById('closeContactFormBtn');
       const appointmentFlow = document.getElementById('appointmentFlow');
       const appointmentQuestionLabel = document.getElementById('appointmentQuestionLabel');
       const appointmentNextBtn = document.getElementById('appointmentNextBtn');
       const appointmentResult = document.getElementById('appointmentResult');
+      const calendlyEmbed = document.getElementById('calendlyEmbed');
+      const calendlyIframe = calendlyEmbed ? calendlyEmbed.querySelector('iframe') : null;
 
       const appointmentPhone = '+54 9 11 4749-5512';
       const calendlyUrl = 'https://calendly.com/galvan457/turnos-consultorio';
+      const calendlyEmbedUrl = `${calendlyUrl}?embed_type=Inline`;
 
       const appointmentQuestions = [
         {
@@ -689,6 +734,9 @@
 
       const showAppointmentResult = () => {
         if (!appointmentResult) return;
+        if (calendlyEmbed) {
+          calendlyEmbed.classList.remove('visible');
+        }
 
         if (appointmentState.discapacidad === 'si') {
           appointmentResult.innerHTML = `Para brindarte una mejor atención, por favor comunicate al consultorio: <a href="https://wa.me/5491147495512" target="_blank" rel="noopener">${appointmentPhone}</a>.`;
@@ -700,7 +748,11 @@
           return;
         }
 
-        appointmentResult.innerHTML = `Perfecto, podés reservar tu turno acá: <a href="${calendlyUrl}" target="_blank" rel="noopener">Calendly</a>.`;
+        appointmentResult.textContent = 'Perfecto, reservá tu turno directamente desde acá:';
+        if (calendlyEmbed && calendlyIframe) {
+          calendlyIframe.src = calendlyEmbedUrl;
+          calendlyEmbed.classList.add('visible');
+        }
       };
 
       const startAppointmentFlow = () => {
@@ -714,6 +766,14 @@
 
         if (appointmentResult) {
           appointmentResult.textContent = '';
+        }
+
+        if (calendlyEmbed) {
+          calendlyEmbed.classList.remove('visible');
+        }
+
+        if (calendlyIframe) {
+          calendlyIframe.src = 'about:blank';
         }
 
         renderAppointmentQuestion();
@@ -741,7 +801,13 @@
           click_origin: origin
         });
 
+        contactBox.classList.remove('hidden');
         contactBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+
+      const closeContactForm = () => {
+        if (!contactBox) return;
+        contactBox.classList.add('hidden');
       };
 
       if (appointmentNextBtn) {
@@ -780,6 +846,12 @@
           e.preventDefault();
           openContactForm('hero_cta');
           startAppointmentFlow();
+        });
+      }
+
+      if (closeContactFormBtn) {
+        closeContactFormBtn.addEventListener('click', () => {
+          closeContactForm();
         });
       }
 
