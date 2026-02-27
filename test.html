@@ -369,6 +369,19 @@
       margin-bottom:8px;
     }
 
+    .appointment-flow--completed label,
+    .appointment-flow--completed #appointmentAnswer,
+    .appointment-flow--completed .appointment-cta{
+      display:none;
+    }
+
+    .appointment-flow--calendar .appointment-result{
+      font-size:16px;
+      font-weight:700;
+      margin-top:0;
+      margin-bottom:10px;
+    }
+
     .appointment-result{
       margin-top:8px;
       font-size:12px;
@@ -391,6 +404,10 @@
       display:none;
     }
 
+    .appointment-flow--calendar .calendly-embed{
+      min-height:580px;
+    }
+
     .calendly-embed.visible{
       display:block;
     }
@@ -399,6 +416,10 @@
       width:100%;
       height:420px;
       border:0;
+    }
+
+    .appointment-flow--calendar .calendly-embed iframe{
+      height:580px;
     }
 
     @media (max-width:700px){
@@ -734,6 +755,11 @@
 
       const showAppointmentResult = () => {
         if (!appointmentResult) return;
+        if (appointmentFlow) {
+          appointmentFlow.classList.add('appointment-flow--completed');
+          appointmentFlow.classList.remove('appointment-flow--calendar');
+        }
+
         if (calendlyEmbed) {
           calendlyEmbed.classList.remove('visible');
         }
@@ -749,6 +775,9 @@
         }
 
         appointmentResult.textContent = 'Perfecto, reservá tu turno directamente desde acá:';
+        if (appointmentFlow) {
+          appointmentFlow.classList.add('appointment-flow--calendar');
+        }
         if (calendlyEmbed && calendlyIframe) {
           calendlyIframe.src = calendlyEmbedUrl;
           calendlyEmbed.classList.add('visible');
@@ -766,6 +795,10 @@
 
         if (appointmentResult) {
           appointmentResult.textContent = '';
+        }
+
+        if (appointmentFlow) {
+          appointmentFlow.classList.remove('appointment-flow--completed', 'appointment-flow--calendar');
         }
 
         if (calendlyEmbed) {
