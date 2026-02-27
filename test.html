@@ -1,0 +1,889 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- ✅ viewport con viewport-fit para iPhone / webview -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PTVZXCJ8');
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-59CKWKR7XC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-59CKWKR7XC');
+    gtag('config', 'AW-17962533008');
+  </script>
+  <title>Dra. Patricia Sebelli · Odontología Integral en Almagro</title>
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Consultorio odontológico de la Dra. Patricia Sebelli en Almagro. Odontología integral para toda la familia, con especial foco en niños. Turnos fáciles por WhatsApp.">
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://drapatriciasebelli.com.ar/" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128x128.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="/favicon-256x256.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --menta:#52c7b8;
+      --menta-oscuro:#14827a;
+      --bgCard: rgba(255,255,255,.96);
+      --shadow:0 4px 10px rgba(0,0,0,.10);
+      --radius:16px;
+      --safe: env(safe-area-inset-bottom);
+    }
+
+    *{box-sizing:border-box}
+    html{
+      scroll-behavior:smooth;
+      -webkit-text-size-adjust:100%;
+    }
+    body{margin:0;}
+
+    .od{
+      margin:0;
+      font-family:"Lato",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.5;
+      background:#eaf7f5;
+      padding-bottom:max(80px,var(--safe));
+    }
+
+    /* ===== HEADER / HERO ===== */
+    .od header{
+      position:relative;
+      min-height:100svh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      overflow:hidden;
+      isolation:isolate;
+      padding:0 16px;
+      padding-top:calc(30px + env(safe-area-inset-top, 0px));
+      padding-bottom:calc(24px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .od header video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      z-index:-2;
+    }
+
+    .od header::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:
+        linear-gradient(180deg, rgba(2,6,23,.65), rgba(2,6,23,.78)),
+        radial-gradient(circle at 50% 18%, rgba(20,184,166,.24), transparent 42%);
+    }
+
+    .od .hero-content{
+      width:min(92%, 920px);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:16px;
+      color:#f8fafc;
+    }
+
+    .od header h1{
+      color:#fff;
+      margin:0;
+      max-width:900px;
+      font-size:clamp(34px,5.2vw,62px);
+      line-height:1.12;
+      font-weight:800;
+      text-shadow:0 2px 20px rgba(0,0,0,.55);
+    }
+    .od header .hero-subtitle{
+      color:#e2e8f0;
+      max-width:860px;
+      margin:0 auto;
+      font-size:clamp(16px,2.4vw,30px);
+      font-weight:500;
+      text-shadow:0 2px 12px rgba(0,0,0,.6);
+    }
+
+    .od .hero-pills{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top:4px;
+    }
+
+    .od .hero-pills a{
+      color:#e2e8f0;
+      text-decoration:none;
+      padding:10px 18px;
+      border-radius:999px;
+      border:1px solid rgba(226,232,240,.38);
+      background:rgba(15,23,42,.38);
+      backdrop-filter:blur(8px);
+      font-weight:600;
+      transition:all .15s ease;
+    }
+
+    .od .hero-pills a:hover{
+      background:rgba(15,118,110,.55);
+      border-color:rgba(153,246,228,.58);
+      transform:translateY(-1px);
+    }
+
+    .od .hero-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:10px;
+      padding:11px 26px;
+      border-radius:999px;
+      color:#06261f;
+      text-decoration:none;
+      font-weight:800;
+      background:linear-gradient(135deg,#34d399,#22c55e);
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+    }
+
+    /* ===== LOGO EN BURBUJA GLASS ===== */
+    .od .logo-sticky{
+      position:fixed;
+      bottom:24px;
+      left:18px;
+      width:96px;
+      height:96px;
+      padding:12px;
+      object-fit:contain;
+      border-radius:50%;
+      background:rgba(255,255,255,.2);
+      border:1px solid rgba(255,255,255,.45);
+      backdrop-filter:blur(12px) saturate(140%);
+      -webkit-backdrop-filter:blur(12px) saturate(140%);
+      box-shadow:0 12px 28px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.35);
+      opacity:1;
+      z-index:900;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+
+    .od .logo-sticky:hover{
+      opacity:1;
+      transform:scale(1.03);
+    }
+
+    @media (max-width:700px){
+      .od .logo-sticky{
+        bottom:calc(12px + env(safe-area-inset-bottom, 0px));
+        left:12px;
+        width:82px;
+        height:82px;
+        padding:10px;
+      }
+    }
+
+    /* ===== SECCIONES ===== */
+    .od section{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      padding:36px 16px;
+    }
+    .od .seccion{
+      width:min(920px,92%);
+      background:var(--bgCard);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:clamp(16px,3.6vw,24px);
+      color:#04323a;
+    }
+    .od .seccion h2{
+      text-align:center;
+      margin-top:0;
+      color:#065f46;
+    }
+
+    /* Grid tratamientos */
+    .tratamientos-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-top:12px;
+    }
+    .tratamiento-card{
+      background:#f9fafb;
+      border-radius:12px;
+      padding:12px 14px;
+      border:1px solid #e2e8f0;
+    }
+    .tratamiento-card strong{
+      display:block;
+      margin-bottom:4px;
+      color:#0f766e;
+    }
+
+    /* Testimonios */
+    .testimonios{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:12px;
+    }
+    .testimonio{
+      background:#f9fafb;
+      border-radius:12px;
+      border:1px solid #e2e8f0;
+      padding:10px 12px;
+      font-size:0.92rem;
+    }
+    .testimonio strong{
+      display:block;
+      margin-top:6px;
+      color:#047857;
+    }
+
+    /* ===== FORMULARIO FLOTANTE ===== */
+    .contact-float{
+      position:fixed;
+      right:20px;
+      bottom:24px;
+      z-index:1300;
+      width:320px;
+      max-width:calc(100% - 40px);
+      background:var(--bgCard);
+      box-shadow:0 10px 28px rgba(0,0,0,.35);
+      border-radius:18px;
+      padding:14px 14px 18px;
+      border:1px solid rgba(15,118,110,.12);
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(16px) scale(.98);
+      transition:opacity .2s ease, transform .2s ease;
+    }
+
+    .contact-float.contact-float--open{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0) scale(1);
+    }
+
+    .close-form{
+      position:absolute;
+      top:6px;
+      right:6px;
+      background:#0f766e;
+      color:white;
+      border:none;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      font-size:16px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 2px 6px rgba(0,0,0,.2);
+      transition:transform .15s ease, background .15s ease;
+    }
+    .close-form:hover{
+      background:#0b5b56;
+      transform:scale(1.07);
+    }
+
+    .contact-float h3{
+      margin:6px 0 4px;
+      font-size:15px;
+      color:#0f766e;
+      font-weight:700;
+      text-align:left;
+      padding-right:30px;
+    }
+
+    .contact-float p{
+      margin:0 0 10px;
+      font-size:13px;
+      color:#065f46;
+    }
+
+    .contact-float form{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-top:6px;
+    }
+
+    .contact-float label{
+      font-size:12px;
+      color:#04323a;
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .contact-float input,
+    .contact-float select{
+      font-family:inherit;
+      font-size:13px;
+      padding:6px 8px;
+      border-radius:8px;
+      border:1px solid #cbd5e1;
+      outline:none;
+    }
+
+    .contact-float input:focus,
+    .contact-float select:focus{
+      border-color:#0f766e;
+      box-shadow:0 0 0 1px rgba(15,118,110,.25);
+    }
+
+    .contact-float button[type="submit"]{
+      margin-top:4px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:none;
+      font-weight:700;
+      font-size:13px;
+      cursor:pointer;
+      background:#0f766e;
+      color:#f9fafb;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition:background .15s ease, transform .1s ease, box-shadow .15s ease;
+      box-shadow:0 6px 16px rgba(0,0,0,.25);
+    }
+
+    .contact-float button[type="submit"]:hover{
+      background:#0b5b56;
+      transform:translateY(-1px);
+      box-shadow:0 8px 20px rgba(0,0,0,.3);
+    }
+
+    .contact-float button[type="submit"]:disabled{
+      opacity:.7;
+      cursor:default;
+      transform:none;
+      box-shadow:none;
+    }
+
+    .form-status{
+      margin-top:6px;
+      font-size:12px;
+      min-height:16px;
+    }
+
+    .form-status--ok{
+      color:#047857;
+      font-weight:600;
+    }
+
+    .form-status--error{
+      color:#b91c1c;
+      font-weight:500;
+    }
+
+    .contact-toggle{
+      position:fixed;
+      right:20px;
+      bottom:24px;
+      z-index:1299;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      border:none;
+      cursor:pointer;
+      background:#0f766e;
+      color:#f9fafb;
+      font-size:24px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 6px 18px rgba(0,0,0,.35);
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .contact-toggle:hover{
+      transform:scale(1.06);
+      box-shadow:0 9px 24px rgba(0,0,0,.4);
+      background:#0b5b56;
+    }
+
+    @media (max-width:700px){
+      .contact-float{
+        right:10px;
+        left:10px;
+        bottom:16px;
+        width:auto;
+        max-width:none;
+      }
+
+      .contact-toggle{
+        right:16px;
+        bottom:18px;
+      }
+
+      .od .hero-content{
+        gap:14px;
+      }
+
+      .od header h1{
+        font-size:clamp(30px,10vw,42px);
+      }
+
+      .od header .hero-subtitle{
+        font-size:clamp(15px,4.8vw,19px);
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-umanoai{
+      background:#000;
+      padding:28px 20px calc(28px + env(safe-area-inset-bottom));
+      margin-top:40px;
+    }
+
+    .footer-umanoai .footer-inner{
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      text-align:center;
+    }
+
+    .footer-umanoai .copy{
+      color:#fff;
+      font-size:14px;
+      margin:0;
+    }
+
+    .footer-umanoai .designed{
+      margin:0;
+      margin-top:4px;
+      color:#fff;
+      font-size:13px;
+      opacity:.9;
+    }
+
+    .footer-umanoai strong{
+      color:#38bdf8;
+    }
+
+    .umanoai-brand{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      opacity:.9;
+      transition:opacity .2s ease, transform .2s ease;
+    }
+
+    .umanoai-brand:hover{
+      opacity:1;
+      transform:scale(1.05);
+    }
+
+    .umanoai-logo{
+      height:34px;
+      width:auto;
+      display:block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTVZXCJ8"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <div class="od">
+
+    <!-- LOGO STICKY -->
+    <img src="logo-clinica.png" alt="Logo Dra. Patricia Sebelli Odontología Integral" class="logo-sticky">
+
+    <!-- HERO -->
+    <header>
+      <video autoplay muted loop playsinline poster="hero.jpg">
+        <source src="hero.mp4" type="video/mp4">
+      </video>
+
+      <div class="hero-content">
+        <h1>Odontología integral para cuidar tu sonrisa en cada etapa</h1>
+        <p class="hero-subtitle">
+          Combinamos atención profesional, seguimiento cercano y un enfoque cálido
+          para que niñas, niños y adultos se atiendan con confianza.
+        </p>
+
+        <div class="hero-pills">
+          <a href="#sobre">La clínica</a>
+          <a href="#tratamientos">Tratamientos</a>
+          <a href="#ninos">Niños</a>
+          <a href="#turnos">Turnos</a>
+        </div>
+
+        <a class="hero-cta" href="#" id="heroContactCta">📝 Reservar consulta</a>
+      </div>
+    </header>
+
+    <!-- SECCIÓN SOBRE LA CLÍNICA -->
+    <section id="sobre">
+      <div class="seccion">
+        <h2>🦷 Odontología integral con trato humano</h2>
+        <p>
+          La clínica de la <strong>Dra. Patricia Sebelli</strong> está pensada para que cada visita sea
+          una experiencia tranquila, clara y sin sobresaltos. Nos enfocamos en <strong>odontología integral</strong>
+          para toda la familia.
+        </p>
+        <ul>
+          <li>Consultorio moderno en <strong>Almagro</strong>.</li>
+          <li>Explicaciones simples, sin tecnicismos.</li>
+          <li>Ambiente cálido, ideal para quienes tienen nervios o ansiedad.</li>
+          <li>Seguimiento y recordatorios de controles periódicos.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECCIÓN TRATAMIENTOS -->
+    <section id="tratamientos">
+      <div class="seccion">
+        <h2>📋 Tratamientos principales</h2>
+
+        <div class="tratamientos-grid">
+          <div class="tratamiento-card">
+            <strong>Controles y limpiezas</strong>
+            Controles periódicos, limpiezas profundas y prevención de caries.
+          </div>
+          <div class="tratamiento-card">
+            <strong>Odontología para niños</strong>
+            Adaptación al sillón, selladores y educación en higiene.
+          </div>
+          <div class="tratamiento-card">
+            <strong>Restauraciones y caries</strong>
+            Tratamientos simples y estéticos para conservar piezas.
+          </div>
+          <div class="tratamiento-card">
+            <strong>Blanqueamiento dental</strong>
+            Tratamientos de blanqueamiento supervisados para mejorar el color de tus piezas dentales.
+          </div>
+          <div class="tratamiento-card">
+            <strong>Ortodoncia</strong>
+            Evaluación y seguimiento de tratamientos de ortodoncia para alinear tu sonrisa.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN NIÑOS -->
+    <section id="ninos">
+      <div class="seccion">
+        <h2>👧👦 Pensado para los más chicos</h2>
+        <p>
+          Las primeras experiencias son fundamentales. Priorizamos la adaptación, el juego
+          y la paciencia para que cada visita sea una experiencia positiva.
+        </p>
+
+        <ul>
+          <li>Consulta de adaptación sin procedimientos.</li>
+          <li>Explicaciones con cuentos y metáforas.</li>
+          <li>Guía para madres y padres en higiene y prevención.</li>
+        </ul>
+
+        <div class="testimonios">
+          <div class="testimonio">
+            “Mi hijo tenía mucho miedo y ahora pregunta cuándo volvemos.”
+            <strong>Mamá de Tomás</strong>
+          </div>
+          <div class="testimonio">
+            “Me explicaron todo y sentí que estaba en buenas manos.”
+            <strong>Victoria</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN TURNOS -->
+    <section id="turnos">
+      <div class="seccion">
+        <h2>📅 Turnos y contacto</h2>
+        <p style="text-align:center;">
+          Coordinamos el horario que mejor se adapte a vos y tu familia.
+        </p>
+
+        <p style="text-align:center;margin-top:8px;">
+          También podés completar el
+          <a href="#" id="openContactFormLink">formulario de contacto</a>
+          y durante los días de consultorio nos estaremos comunicando con vos.
+        </p>
+
+        <p style="text-align:center;margin-top:8px;">
+          Turnos: <strong>+54 9 11 4749-5512</strong><br>
+          Consultorio en <strong>Almagro, CABA</strong><br>
+          Bulnes 680 Piso 14 B
+        </p>
+
+      </div>
+    </section>
+
+  </div> <!-- cierre .od -->
+
+
+  <!-- BOTÓN FLOTANTE PARA ABRIR FORMULARIO -->
+  <button class="contact-toggle" id="contactToggle" aria-label="Abrir formulario de consulta" aria-expanded="false">
+    📝
+  </button>
+
+  <!-- FORMULARIO FLOTANTE -->
+  <div class="contact-float" id="contactBox">
+
+    <button class="close-form" id="closeFormBtn" aria-label="Cerrar formulario">✖</button>
+
+    <h3>Consultas de la clínica</h3>
+    <p>Completá tus datos y nos comunicaremos durante los días de consultorio.</p>
+
+    <form id="contactForm">
+
+      <label for="motivo">
+        Motivo de la consulta*
+        <select id="motivo" name="motivo" required>
+          <option value="">Seleccioná una opción</option>
+          <option value="control-limpieza">Control y limpieza</option>
+          <option value="ninos">Consulta para niños</option>
+          <option value="Blanqueamiento">Blanqueamiento</option>
+          <option value="estetica">Estética dental</option>
+          <option value="Ortodoncia">Ortodoncia</option>
+          <option value="otro">Otro</option>
+        </select>
+      </label>
+
+      <label for="nombre">
+        Nombre completo*
+        <input type="text" id="nombre" name="nombre" required />
+      </label>
+
+      <label for="dni">
+        Cobertura*
+        <select id="dni" name="dni" required>
+          <option value="">Seleccioná una opción</option>
+          <option value="OSDE">OSDE</option>
+          <option value="ITALIANO">ITALIANO</option>
+          <option value="PARTICULAR">PARTICULAR</option>
+          <option value="OTRO">OTRO</option>
+        </select>
+      </label>
+
+      <label for="telefono">
+        Teléfono / WhatsApp*
+        <input type="tel" id="telefono" name="telefono" required />
+      </label>
+
+      <label for="email">
+        Correo electrónico*
+        <input type="email" id="email" name="email" required />
+      </label>
+
+      <label for="edad">
+        Edad*
+        <input type="number" id="edad" name="edad" required min="0" max="110" />
+      </label>
+
+      <button type="submit" id="submitBtn">Enviar</button>
+
+      <div class="form-status" id="formStatus" aria-live="polite"></div>
+
+    </form>
+
+  </div>
+
+  <!-- JS FORMULARIO -->
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      const form = document.getElementById('contactForm');
+      const statusEl = document.getElementById('formStatus');
+      const submitBtn = document.getElementById('submitBtn');
+      const contactBox = document.getElementById('contactBox');
+      const toggleBtn = document.getElementById('contactToggle');
+      const closeBtn = document.getElementById('closeFormBtn');
+      const openFormLink = document.getElementById('openContactFormLink');
+      const heroContactCta = document.getElementById('heroContactCta');
+
+      const trackGa4Event = (eventName, eventParams = {}) => {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', eventName, eventParams);
+          return;
+        }
+
+        if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push({
+            event: eventName,
+            ...eventParams
+          });
+        }
+      };
+
+      const openContactForm = (origin = 'unknown') => {
+        if (!contactBox || !toggleBtn) return;
+
+        trackGa4Event('form_open_click', {
+          form_name: 'contacto_clinica',
+          click_origin: origin
+        });
+
+        contactBox.classList.add('contact-float--open');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        contactBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+
+      if (toggleBtn && contactBox){
+        toggleBtn.addEventListener('click', () => {
+          const isOpen = contactBox.classList.toggle('contact-float--open');
+          toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+          if (isOpen) {
+            trackGa4Event('form_open_click', {
+              form_name: 'contacto_clinica',
+              click_origin: 'floating_button'
+            });
+          }
+        });
+      }
+
+      if (closeBtn && contactBox && toggleBtn){
+        closeBtn.addEventListener('click', () => {
+          contactBox.classList.remove('contact-float--open');
+          toggleBtn.setAttribute('aria-expanded','false');
+        });
+      }
+
+      if (openFormLink && contactBox && toggleBtn) {
+        openFormLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          openContactForm('turnos_link');
+        });
+      }
+
+      if (heroContactCta) {
+        heroContactCta.addEventListener('click', (e) => {
+          e.preventDefault();
+          openContactForm('hero_cta');
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          const PA_ENDPOINT = "https://default5243832e5a814f3d9656d9f5b8364a.23.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/12688bd405594ecb8bccc3adb328f237/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=kEgrv34Vm2M-c4d1hRB5lf-9ZStrWXDhNXdC4lLnQCo";
+
+          const payload = {
+            motivo: document.getElementById('motivo').value,
+            nombre: document.getElementById('nombre').value.trim(),
+            dni: document.getElementById('dni').value.trim(),
+            telefono: document.getElementById('telefono').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            edad: document.getElementById('edad').value.trim(),
+            origen: "Web Dra. Patricia Sebelli"
+          };
+
+          trackGa4Event('form_submit_click', {
+            form_name: 'contacto_clinica',
+            motivo: payload.motivo || 'sin_motivo',
+            cobertura: payload.dni || 'sin_cobertura'
+          });
+
+          statusEl.textContent = "";
+          statusEl.className = "form-status";
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando...";
+
+          try {
+            const resp = await fetch(PA_ENDPOINT, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(payload)
+            });
+
+            if (!resp.ok) {
+              throw new Error("Error en la respuesta del servidor");
+            }
+
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Enviar";
+
+            trackGa4Event('form_submit_success', {
+              form_name: 'contacto_clinica'
+            });
+
+            window.location.href = "gracias.html";
+          } catch (err) {
+            console.error(err);
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Enviar";
+
+            trackGa4Event('form_submit_error', {
+              form_name: 'contacto_clinica'
+            });
+
+            statusEl.textContent = "Ocurrió un error. Si el problema continúa, podés escribirnos por WhatsApp.";
+            statusEl.classList.add("form-status--error");
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- ===== FOOTER NEGRO PROFESIONAL ===== -->
+  <footer class="footer-umanoai">
+    <div class="footer-inner">
+      <p class="copy">
+        © <span id="year"></span> Dra. Patricia Sebelli · Todos los derechos reservados.
+      </p>
+
+      <p class="designed">
+        Diseñado por <strong>UmanoAI</strong>
+      </p>
+
+      <a href="https://umanoai.com.ar" target="_blank" class="umanoai-brand">
+        <img src="umanoai (1).png" alt="UmanoAI" class="umanoai-logo">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
