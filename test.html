@@ -415,7 +415,7 @@
     }
 
     .appointment-flow--calendar .calendly-embed{
-      min-height:68vh;
+      min-height:580px;
     }
 
     .calendly-embed.visible{
@@ -429,8 +429,7 @@
     }
 
     .appointment-flow--calendar .calendly-embed iframe{
-      height:68vh;
-      min-height:560px;
+      height:580px;
     }
 
     @media (max-width:700px){
@@ -777,10 +776,6 @@
           appointmentFlow.classList.remove('appointment-flow--calendar');
         }
 
-        if (contactBox) {
-          contactBox.classList.remove('contact-float--calendar-expanded');
-        }
-
         if (calendlyEmbed) {
           calendlyEmbed.classList.remove('visible');
         }
@@ -799,10 +794,6 @@
         if (appointmentFlow) {
           appointmentFlow.classList.add('appointment-flow--calendar');
         }
-        if (contactBox) {
-          contactBox.classList.add('contact-float--calendar-expanded');
-        }
-
         if (calendlyEmbed && calendlyIframe) {
           calendlyIframe.src = calendlyEmbedUrl;
           calendlyEmbed.classList.add('visible');
@@ -824,10 +815,6 @@
 
         if (appointmentFlow) {
           appointmentFlow.classList.remove('appointment-flow--completed', 'appointment-flow--calendar');
-        }
-
-        if (contactBox) {
-          contactBox.classList.remove('contact-float--calendar-expanded');
         }
 
         if (calendlyEmbed) {
