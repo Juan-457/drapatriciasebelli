@@ -288,7 +288,7 @@
 
     .contact-float--calendar-expanded{
       top:20px;
-      width:min(1100px, calc(100% - 24px));
+      width:min(630px, calc(100% - 24px));
       max-width:calc(100% - 24px);
       max-height:calc(100vh - 40px);
       padding:20px;
@@ -441,6 +441,7 @@
 
       .contact-float--calendar-expanded{
         top:12px;
+        width:calc(100% - 24px);
         max-height:calc(100vh - 24px);
         padding:14px;
       }
@@ -804,16 +805,19 @@
         if (appointmentFlow) {
           appointmentFlow.classList.add('appointment-flow--calendar');
         }
+        if (contactBox) {
+          contactBox.classList.add('contact-float--calendar-expanded');
+        }
         if (calendlyEmbed && calendlyIframe) {
           const calendlyEmbedUrl = new URL(calendlyUrl);
           const tipoPacienteLabel = calendarValueLabels.tipoPaciente[appointmentState.tipoPaciente] || appointmentState.tipoPaciente;
           const discapacidadLabel = calendarValueLabels.discapacidad[appointmentState.discapacidad] || appointmentState.discapacidad;
 
           calendlyEmbedUrl.searchParams.set('embed_type', 'Inline');
-          calendlyEmbedUrl.searchParams.set('a1', appointmentState.dni);
-          calendlyEmbedUrl.searchParams.set('a2', tipoPacienteLabel);
-          calendlyEmbedUrl.searchParams.set('a3', appointmentState.cobertura);
-          calendlyEmbedUrl.searchParams.set('a4', discapacidadLabel);
+          calendlyEmbedUrl.searchParams.set('a1', `DNI: ${appointmentState.dni}`);
+          calendlyEmbedUrl.searchParams.set('a2', `Tipo de paciente: ${tipoPacienteLabel}`);
+          calendlyEmbedUrl.searchParams.set('a3', `Cobertura: ${appointmentState.cobertura}`);
+          calendlyEmbedUrl.searchParams.set('a4', `Discapacidad: ${discapacidadLabel}`);
 
           calendlyIframe.src = calendlyEmbedUrl.toString();
           calendlyEmbed.classList.add('visible');
@@ -835,6 +839,10 @@
 
         if (appointmentFlow) {
           appointmentFlow.classList.remove('appointment-flow--completed', 'appointment-flow--calendar');
+        }
+
+        if (contactBox) {
+          contactBox.classList.remove('contact-float--calendar-expanded');
         }
 
         if (calendlyEmbed) {
