@@ -812,12 +812,15 @@
           const calendlyEmbedUrl = new URL(calendlyUrl);
           const tipoPacienteLabel = calendarValueLabels.tipoPaciente[appointmentState.tipoPaciente] || appointmentState.tipoPaciente;
           const discapacidadLabel = calendarValueLabels.discapacidad[appointmentState.discapacidad] || appointmentState.discapacidad;
+          const appointmentDetails = [
+            `DNI: ${appointmentState.dni}`,
+            `Tipo de paciente: ${tipoPacienteLabel}`,
+            `Cobertura: ${appointmentState.cobertura}`,
+            `Discapacidad: ${discapacidadLabel}`
+          ].join('\n');
 
           calendlyEmbedUrl.searchParams.set('embed_type', 'Inline');
-          calendlyEmbedUrl.searchParams.set('a1', `DNI: ${appointmentState.dni}`);
-          calendlyEmbedUrl.searchParams.set('a2', `Tipo de paciente: ${tipoPacienteLabel}`);
-          calendlyEmbedUrl.searchParams.set('a3', `Cobertura: ${appointmentState.cobertura}`);
-          calendlyEmbedUrl.searchParams.set('a4', `Discapacidad: ${discapacidadLabel}`);
+          calendlyEmbedUrl.searchParams.set('a1', appointmentDetails);
 
           calendlyIframe.src = calendlyEmbedUrl.toString();
           calendlyEmbed.classList.add('visible');
