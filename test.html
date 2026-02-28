@@ -810,17 +810,12 @@
         }
         if (calendlyEmbed && calendlyIframe) {
           const calendlyEmbedUrl = new URL(calendlyUrl);
-          const tipoPacienteLabel = calendarValueLabels.tipoPaciente[appointmentState.tipoPaciente] || appointmentState.tipoPaciente;
-          const discapacidadLabel = calendarValueLabels.discapacidad[appointmentState.discapacidad] || appointmentState.discapacidad;
-          const appointmentDetails = [
-            `DNI: ${appointmentState.dni}`,
-            `Tipo de paciente: ${tipoPacienteLabel}`,
-            `Cobertura: ${appointmentState.cobertura}`,
-            `Discapacidad: ${discapacidadLabel}`
-          ].join('\n');
-
           calendlyEmbedUrl.searchParams.set('embed_type', 'Inline');
-          calendlyEmbedUrl.searchParams.set('a1', appointmentDetails);
+
+          // Calendly dejó de mostrar la pregunta de "Descripción" cuando viene
+          // precompletada vía URL (`a1`). Conservamos el dato en el objeto local
+          // y evitamos enviar `a1` para que
+          // el campo vuelva a aparecer y pueda completarse manualmente.
 
           calendlyIframe.src = calendlyEmbedUrl.toString();
           calendlyEmbed.classList.add('visible');
