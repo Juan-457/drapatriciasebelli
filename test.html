@@ -689,7 +689,17 @@
 
       const appointmentPhone = '+54 9 11 4749-5512';
       const calendlyUrl = 'https://calendly.com/galvan457/turnos-consultorio';
-      const calendlyEmbedUrl = `${calendlyUrl}?embed_type=Inline`;
+
+      const calendarValueLabels = {
+        tipoPaciente: {
+          adulto: 'Adulto',
+          nino: 'Niño'
+        },
+        discapacidad: {
+          si: 'Sí',
+          no: 'No'
+        }
+      };
 
       const appointmentQuestions = [
         {
@@ -795,7 +805,17 @@
           appointmentFlow.classList.add('appointment-flow--calendar');
         }
         if (calendlyEmbed && calendlyIframe) {
-          calendlyIframe.src = calendlyEmbedUrl;
+          const calendlyEmbedUrl = new URL(calendlyUrl);
+          const tipoPacienteLabel = calendarValueLabels.tipoPaciente[appointmentState.tipoPaciente] || appointmentState.tipoPaciente;
+          const discapacidadLabel = calendarValueLabels.discapacidad[appointmentState.discapacidad] || appointmentState.discapacidad;
+
+          calendlyEmbedUrl.searchParams.set('embed_type', 'Inline');
+          calendlyEmbedUrl.searchParams.set('a1', appointmentState.dni);
+          calendlyEmbedUrl.searchParams.set('a2', tipoPacienteLabel);
+          calendlyEmbedUrl.searchParams.set('a3', appointmentState.cobertura);
+          calendlyEmbedUrl.searchParams.set('a4', discapacidadLabel);
+
+          calendlyIframe.src = calendlyEmbedUrl.toString();
           calendlyEmbed.classList.add('visible');
         }
       };
