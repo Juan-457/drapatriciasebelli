@@ -29,6 +29,62 @@
   <meta name="description" content="Consultorio odontológico de la Dra. Patricia Sebelli en Almagro. Odontología integral para toda la familia, con especial foco en niños. Turnos fáciles por WhatsApp.">
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://drapatriciasebelli.com.ar/" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la RMR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La RMR es la Rehabilitación Masticatoria Respiratoria. Es un enfoque integral que considera a la persona como un todo y trabaja la respiración nasal y la masticación para favorecer el desarrollo de maxilares, el posicionamiento dental y el equilibrio corporal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es la Odontología Biológica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La Odontología Biológica es un enfoque holístico de rehabilitación bucal que busca optimizar funciones esenciales como respirar y masticar. Puede mejorar la salud oral y generar un impacto positivo en el bienestar general."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuándo debería llevar a mi hijo por primera vez al odontólogo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se recomienda la primera consulta cuando aparece el primer diente o antes del primer cumpleaños. Esto permite orientar hábitos de higiene, alimentación y prevención desde edades tempranas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuáles son señales de alerta para consultar por RMR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ronquidos, sequedad bucal, dolor de cabeza o cuello, respiración por la boca y sueño poco reparador son signos frecuentes para evaluar en consulta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hago si a mi hijo le sangran las encías al cepillarse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El sangrado de encías suele asociarse a inflamación por placa. Es importante mantener una higiene suave y constante y consultar al odontólogo si no mejora en pocos días."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La ortodoncia en niños siempre empieza con brackets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. La ortodoncia puede comenzar en etapas tempranas con abordajes preventivos o funcionales. El momento y el tipo de tratamiento se definen según cada caso."
+          }
+        }
+      ]
+    }
+  </script>
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
@@ -225,6 +281,53 @@
       text-align:center;
       margin-top:0;
       color:#065f46;
+    }
+
+    .faq-list{
+      margin-top:10px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .faq-item{
+      border:1px solid #d1fae5;
+      border-radius:12px;
+      background:#f0fdf4;
+      overflow:hidden;
+    }
+
+    .faq-item summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:700;
+      color:#065f46;
+      padding:12px 14px;
+      position:relative;
+    }
+
+    .faq-item summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .faq-item summary::after{
+      content:"+";
+      position:absolute;
+      right:14px;
+      top:10px;
+      font-size:22px;
+      line-height:1;
+      color:#047857;
+    }
+
+    .faq-item[open] summary::after{
+      content:"−";
+    }
+
+    .faq-answer{
+      padding:0 14px 14px;
+      color:#134e4a;
+      font-size:0.98rem;
     }
 
     /* Grid tratamientos */
@@ -542,6 +645,7 @@
           <a href="#sobre">La clínica</a>
           <a href="#tratamientos">Tratamientos</a>
           <a href="#ninos">Niños</a>
+          <a href="#faqs">FAQs</a>
           <a href="#turnos">Turnos</a>
         </div>
 
@@ -621,6 +725,69 @@
             “Me explicaron todo y sentí que estaba en buenas manos.”
             <strong>Victoria</strong>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs">
+      <div class="seccion">
+        <h2>❓ Preguntas frecuentes (FAQ)</h2>
+        <p>
+          Armamos esta sección con preguntas reales de pacientes sobre <strong>odontología infantil</strong>,
+          <strong>RMR</strong> y <strong>odontología biológica</strong>. Además de ayudar a familias a resolver
+          dudas rápidas, este contenido mejora la relevancia del sitio para búsquedas frecuentes en Google.
+        </p>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>¿Qué es la RMR?</summary>
+            <div class="faq-answer">
+              La <strong>Rehabilitación Masticatoria Respiratoria (RMR)</strong> mira a la persona como un todo.
+              Trabaja la respiración y la masticación para favorecer el correcto desarrollo de maxilares,
+              una mejor estabilidad dental y el equilibrio general del cuerpo.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Qué es la Odontología Biológica?</summary>
+            <div class="faq-answer">
+              Es un enfoque <strong>holístico</strong> de rehabilitación bucal que prioriza funciones vitales como
+              respirar y masticar adecuadamente. Busca no solo mejorar la boca, sino también impactar de forma
+              positiva en la salud integral y la calidad de vida.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Cuándo debo llevar a mi hijo por primera vez al odontólogo?</summary>
+            <div class="faq-answer">
+              Lo ideal es hacerlo cuando aparece el primer diente o antes del primer cumpleaños.
+              Ese control temprano permite prevenir caries, ordenar hábitos y acompañar el crecimiento.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Qué señales pueden indicar que necesito una evaluación de RMR?</summary>
+            <div class="faq-answer">
+              Si hay <strong>ronquidos</strong>, <strong>sequedad bucal</strong>, dolores de cabeza o cuello,
+              respiración por la boca o sueño de mala calidad, conviene consultar.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Por qué a mi hijo le sangran las encías al cepillarse?</summary>
+            <div class="faq-answer">
+              Suele relacionarse con inflamación por placa. Mantener una higiene suave pero constante y
+              consultar en control permite resolverlo y prevenir problemas mayores.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿La ortodoncia infantil siempre empieza con brackets?</summary>
+            <div class="faq-answer">
+              No siempre. En muchos casos se inicia con una etapa funcional o preventiva para corregir causas
+              tempranas y acompañar el desarrollo antes de ortodoncia fija.
+            </div>
+          </details>
         </div>
       </div>
     </section>
