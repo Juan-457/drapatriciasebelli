@@ -1,0 +1,40 @@
+# Dra. Patricia Sebelli — Odontología Integral
+
+Sitio oficial del consultorio odontológico de la Dra. Patricia Sebelli en Almagro, Ciudad de Buenos Aires, Argentina.
+
+## Sitio principal
+- https://drapatriciasebelli.com.ar/
+
+## Páginas importantes
+- Inicio: https://drapatriciasebelli.com.ar/
+- Gracias (confirmación de contacto): https://drapatriciasebelli.com.ar/gracias.html
+
+## Descripción breve
+Consultorio de odontología integral para toda la familia, con especial foco en odontopediatría, prevención y abordajes funcionales como RMR (Rehabilitación Masticatoria Respiratoria).
+
+## Servicios y temas del sitio
+- Odontología integral
+- Odontopediatría
+- Prevención y educación en salud bucal
+- Evaluación funcional respiratoria y masticatoria (RMR)
+- Consultas y turnos por WhatsApp
+
+## Público
+- Adultos
+- Niños
+- Familias
+
+## Ubicación
+- Barrio de Almagro, CABA, Argentina
+
+## Contacto
+- El canal prioritario de contacto y turnos es WhatsApp desde los enlaces del sitio principal.
+
+## Idioma
+- Español (es-AR)
+
+## Datos estructurados presentes en la web
+- FAQPage (Schema.org) en la página principal.
+
+## Actualización
+- Consultar sitemap.xml para URLs canónicas y fecha de última modificación.
