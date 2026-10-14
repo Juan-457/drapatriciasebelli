@@ -897,6 +897,8 @@
       }
 
       const form = document.getElementById('contactForm');
+      // Marca de carga: el proxy descarta envíos sin ella o demasiado rápidos (anti-bots).
+      const SEBELLI_PAGE_LOADED_AT = Date.now();
       const statusEl = document.getElementById('formStatus');
       const submitBtn = document.getElementById('submitBtn');
       const contactBox = document.getElementById('contactBox');
@@ -985,7 +987,8 @@
             telefono: document.getElementById('telefono').value.trim(),
             email: document.getElementById('email').value.trim(),
             edad: document.getElementById('edad').value.trim(),
-            origen: "Web Dra. Patricia Sebelli"
+            origen: "Web Dra. Patricia Sebelli",
+            _t: SEBELLI_PAGE_LOADED_AT
           };
 
           trackGa4Event('form_submit_click', {
